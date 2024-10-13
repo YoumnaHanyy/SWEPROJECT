@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f6f6f6;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between; /* Pushes the right buttons away from the left links */
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+}
+.header .left-buttons {
+    display: flex;
+    align-items: center;
+}
+.header .left-buttons {
+    display: flex;
+    align-items: center;
+}
+.header .left-buttons .signup-btn {
+    background-color: #28a745;
+}
+
+.header nav {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Ensures the nav takes up all the space it can */
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+}
+
+.header .logo img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.header nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.header .login-btn,
+.header .signup-btn {
+    margin-left: 50px; /* Increase the margin-left to create more space */
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.header .signup-btn {
+    background-color: #28a745;
+}
+
+/* Add more spacing between the last link ("Plans") and the buttons */
+.header nav a:last-child {
+    margin-right: -100px; /* This will push the buttons to the far right */
+}
+
+.main-content {
+    margin-top: 50px;
+}
+/*fonts*/
+.main-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.main-content .highlight {
+    color: #28a745;
+}
+
+.main-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    padding: 15px 30px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.login-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.options .option {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.options .option:hover {
+    background-color: #f0f0f0;
+}
