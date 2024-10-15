@@ -1,0 +1,642 @@
+/* General Styles */
+body {
+    background-color: #242424;
+    /* Gradient from top-left to bottom-right */
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+    display: flex;
+    position: fixed; /* Ensures the sidebar stays fixed on the left side */
+    top: 6px;
+    left: 10px;
+    flex-direction: column;
+    width: 220px; /* Sidebar width */
+    background-color: #262626;
+    padding: 10px;
+    border: 1px solid rgb(72, 72, 72); /* Thin white border (2px) */
+    border-radius: 10px;
+    overflow-y: auto; /* Allows vertical scrolling for overflow content */ /* Allows vertical scrolling for overflow content */
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.profile-avatar {
+    background-color: #ffcc00;
+    color: black;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-info {
+    margin-left: 10px;
+    font-size: 12px;
+    line-height: 1.2; /* Adjusts line spacing */
+}
+
+.notifications {
+    margin-left: auto;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Search Bar */
+.search-bar {
+    margin-bottom: 20px;
+    width: 94%;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px;
+    background-color: #444;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.action-buttons .btn {
+    width: 100%; /* Full width */
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.sub-buttons {
+    display: flex; /* Align buttons in a row */
+    width: 100%; /* Full width */
+}
+
+.sub-buttons .btn {
+    flex: 1; /* Distribute space equally */
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.sub-buttons .btn + .btn {
+    margin-left: 10px; /* Spacing between buttons */
+}
+
+/* Button Colors */
+
+
+#taskbtn {
+    background-color: #7e9bd6; /* Purple */
+}
+
+#eventbtn {
+    background-color: #fb9e97; /* Red */
+}
+
+/* Scrollable Menu Items */
+.menu-items {
+    flex-grow: 1; /* Occupies remaining space in the sidebar */
+    overflow-y: auto; /* Scroll if items overflow */
+    margin-bottom: 20px; /* Space before the download section */
+}
+
+.menu-items .btn {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: transparent;
+    text-align: left;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center; /* Align icons and text vertically */
+}
+
+.menu-items .btn i {
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.menu-items .btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Custom Scrollbar */
+.menu-items::-webkit-scrollbar {
+    width: 8px;
+}
+
+.menu-items::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+.menu-items::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+/* Download and Upgrade Section */
+.download-upgrade {
+    margin-top: auto;
+    padding: 10px 0;
+}
+
+.download-btn, .upgrade-btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.download-btn {
+    background-color: #333;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.upgrade-btn {
+    background-color: #ffcc00;
+    color: black;
+}
+
+/* Help Section */
+.help-section {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.help-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* Responsive Scroll Handling */
+.sidebar-menu {
+    overflow-y: auto; /* Ensures the sidebar scrolls when content overflows */
+}
+
+.sidebar-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+#noteBtn {
+    background-color: #58e66b;
+}
+.sub-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+.sub-buttons .btn {
+    width: 48%;
+}
+.menu-items {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+.menu-items .btn {
+    margin-bottom: 5px;
+}
+.menu-items i {
+    margin-right: 10px;
+}
+.download-upgrade {
+    margin-top: 20px;
+}
+.download-btn, .upgrade-btn, .help-btn {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.download-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+.upgrade-btn {
+    background-color: #2196F3;
+    color: white;
+}
+.help-btn {
+    background-color: #333;
+    color: #888;
+}
+/* Right-side main content */
+.main-content {
+    flex-grow: 1;
+margin-top: 6px;
+margin-right: 10px;
+border-radius: 5px;
+    padding: 20px;
+    display: none; /* Ensures the content area is visible */
+    background-color: #141414; /* Dark background */
+    color: white; /* Text color */
+    min-height: 100vh; /* Full height */
+    margin-left: 550px; /* To push the right side from the left sidebar */
+    box-sizing: border-box;
+    border: 1px solid rgb(93, 93, 93);
+}
+
+/* Top bar with notebook title and share button */
+.main-content .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #333; /* Slight border for separation */
+}
+
+.main-content .notebook-title {
+    font-size: 14px;
+    color: #888;
+}
+
+.main-content .share-button {
+    background-color: #7c3aed; /* Purple button */
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Content area where you write notes */
+.main-content .content-area {
+    background-color: #141414; /* Slightly lighter than main background */
+    padding: 20px;
+   
+    margin-top: 20px;
+    min-height: calc(100vh - 100px);
+    /* Add subtle shadow */
+}
+
+/* Input for note title */
+.main-content .title-input {
+    background-color: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.475);
+    font-size: 30px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    width: 100%;
+    border-bottom: 1px solid #888; /* Light underline when inactive */
+    outline: none; /* Remove default input outline */ /* Light underline for input */
+}
+.main-content .title-input:focus {
+    border-bottom: 1px solid transparent; /* Remove the border when focused */
+}
+.main-content .subtitle {
+    color: #888; /* Subtitle in lighter grey */
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    width: 100%;
+    /* Light underline when inactive */
+    outline: none; /* Remove default input outline */ /* Light underline for input */
+}
+.main-content .subtitle:focus {
+    border-bottom: 1px solid transparent; /* Remove the border when focused */
+}
+/* Template suggestions buttons */
+.main-content .template-suggestions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Wrap if they overflow */
+}
+
+.main-content .template-button {
+    background-color: transparent;
+    border: 1px solid #888;
+    color: #888;
+    padding: 10px 20px; /* Increased padding */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.main-content .template-button:hover {
+    background-color: #555; /* Darker on hover */
+}
+
+.main-content .open-gallery {
+    background-color: transparent;
+    border: 1px solid #888;
+    color: #888;
+    padding: 5px 10px;
+    border-radius: 5px;
+   
+}
+/* Right-side main content */
+
+/* Toolbar styles */
+.toolbar {
+    display: flex;
+    align-items: center;
+    background-color: #141414; /* Dark background to match theme */
+    padding: 10px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 20px; /* Spacing below the toolbar */
+}
+
+.toolbar-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.toolbar-btn i {
+    font-size: 16px;
+}
+
+.toolbar-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.font-family, .font-size, .color-picker {
+    background-color: #3a3a3a;
+    color: white;
+    border: none;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.font-family, .font-size {
+    color: white;
+}
+
+.color-picker {
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+}
+
+/* Content area styles */
+.content-area {
+    background-color: #2d2d2d;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add subtle shadow */
+}
+
+.title-input {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    margin-bottom: 10px;
+    width: 100%;
+    border-bottom: 1px solid #888; /* Light underline for input */
+}
+
+.subtitle {
+    color: #888; /* Subtitle in lighter grey */
+    margin-bottom: 20px;
+}
+
+.template-suggestions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Wrap if they overflow */
+}
+
+.template-button {
+    background-color: #3a3a3a;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.open-gallery {
+    background-color: transparent;
+    border: 1px solid #888;
+    color: #888;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.title-input, .subtitle {
+    border: none;
+    outline: none; /* Remove outline on focus */
+    background-color: transparent;
+    color: white;
+    padding: 10px;
+    font-size: 24px;
+    border-bottom: 1px solid #888; /* Add light border to mimic input */
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 14px;
+    border-bottom: 1px solid #888;
+}
+
+
+/* Modal background */
+.task-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgb(93, 93, 93);
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: none; /* Flexbox layout for centering */
+    justify-content: center; /* Horizontally center the modal */
+    align-items: center; /* Vertically center the modal */
+    z-index: 1000;
+}
+
+/* Modal content box */
+.task-modal-content {
+    border: 1px solid rgb(93, 93, 93);
+    background-color: #141414;
+    padding: 20px;
+    border-radius: 10px;
+    width: 600px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 90vh; /* Ensure it doesn't overflow the screen height */
+    overflow-y: auto; /* Add scroll if content overflows */
+}
+
+.task-modal-content h2 {
+    margin-top: 0;
+    color: #fff;
+    font-size: 18px;
+}
+
+.task-fields {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-fields label {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.task-fields textarea {
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    resize: vertical;
+    width: 95%;
+}
+
+.task-date-options, .task-reminder-options, .task-priority-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.task-date-options button, .task-reminder-options button, .task-priority-options button {
+    padding: 5px 10px;
+    background-color: #444;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.task-fields input[type="text"] {
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.task-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.cancel-btn, .create-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background-color: #444;
+}
+
+.create-btn {
+    background-color: #7c3aed;
+    color: white;
+    cursor: not-allowed; /* Disabled look */
+    opacity: 0.5;
+}
+
+.task-priority-options button {
+    padding: 5px 15px;
+}
+
+/* Switch for Flag */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #7c3aed;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
