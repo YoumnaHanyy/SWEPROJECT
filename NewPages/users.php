@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Linking to your CSS file -->
-    <link rel="stylesheet" href="../newStyles/styless.css">
+    <link rel="stylesheet" href="../STYLE/style.css">
 </head>
 <body>
     <div class="sidebar-menu">
@@ -149,6 +149,64 @@
             </div>
         </div>
     </div>
+    <div class="event-modal" id="eventModal" style="display: none;">
+    <div class="event-modal-content">
+        <h2><i class="fa fa-calendar-plus"></i> Create Event</h2>
+        <div class="event-fields">
+            <label><i class="fa fa-pen"></i> Event Title</label>
+            <input type="text" placeholder="Enter event title" id="eventTitle">
+
+            <label><i class="fa fa-calendar"></i> Start Date & Time</label>
+            <input type="datetime-local" id="eventStart">
+
+            <label><i class="fa fa-calendar"></i> End Date & Time</label>
+            <input type="datetime-local" id="eventEnd">
+
+            <div class="event-actions">
+                <button class="cancel-event-btn">Cancel</button>
+                <button class="create-event-btn">Create Event</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="home-content" id="homeContent">
+    <h2>Ready to start taking notes?</h2>
+    <div class="notes-header">
+        <h3>yomna2207085c5a50bc41c3d015e's Home</h3>
+    </div>
+    <div class="notes-section">
+        <div class="note-card">
+            <p>Untitled</p>
+            <small>Oct 15</small>
+        </div>
+        <div class="note-card">
+            <p>Meeting note</p>
+            <p>Date & Time Goal<br>Attendees Me<br>Agenda Notes<br>Action Items</p>
+            <small>Oct 14</small>
+        </div>
+        <div class="note-card">
+            <p>Untitled</p>
+            <small>Oct 14</small>
+        </div>
+        <div class="note-card">
+            <p>Untitled</p>
+            <small>Oct 14</small>
+        </div>
+    </div>
+    <div class="recently-captured">
+        <h3>Recently Captured</h3>
+        <div class="capture-options">
+            <button>Web Clips</button>
+            <button>Images</button>
+            <button>Documents</button>
+            <button>Audio</button>
+            <button>Emails</button>
+        </div>
+    </div>
+</div>
+
+
     <script>
         // Show main content (toolbar + note editor) when +Note button is clicked
       
@@ -209,5 +267,41 @@ document.querySelector('.cancel-btn').addEventListener('click', function() {
             showPlaceholder();
         });
     </script>
+
+    <script>
+        // Show event modal when +Event button is clicked
+document.getElementById('eventbtn').addEventListener('click', function () {
+    const eventModal = document.getElementById('eventModal');
+    eventModal.style.display = 'flex'; // Show event modal
+});
+
+// Hide event modal when Cancel button is clicked
+document.querySelector('.cancel-event-btn').addEventListener('click', function () {
+    const eventModal = document.getElementById('eventModal');
+    eventModal.style.display = 'none'; // Hide event modal
+});
+
+// Handle creating the event
+document.querySelector('.create-event-btn').addEventListener('click', function () {
+    const title = document.getElementById('eventTitle').value;
+    const start = document.getElementById('eventStart').value;
+    const end = document.getElementById('eventEnd').value;
+
+    if (title && start && end) {
+        // For now, log the event details (you can integrate with your calendar view)
+        console.log(`Event Created: ${title}, Start: ${start}, End: ${end}`);
+        alert(`Event "${title}" created successfully!`);
+
+        // Hide the event modal
+        document.getElementById('eventModal').style.display = 'none';
+    } else {
+        alert('Please fill all the fields.');
+    }
+});
+
+
+    </script>
+    
+
 </body>
 </html>
