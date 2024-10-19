@@ -38,7 +38,8 @@
         </div>
         
         <div class="menu-items">
-            <button class="btn"><i class="fa-solid fa-house"></i> Home</button>
+        <button class="btn" id="homeBtn"><i class="fa-solid fa-house"></i> Home</button>
+
             <button class="btn"><i class="fas fa-tasks"></i> Tasks</button>
             <button class="btn"><i class="fas fa-file"></i> Files</button>
             <button class="btn"><i class="fas fa-calendar"></i> Calendar</button>
@@ -299,6 +300,22 @@ document.querySelector('.create-event-btn').addEventListener('click', function (
     }
 });
 
+// Show home content when Home button is clicked
+document.getElementById('homeBtn').addEventListener('click', function() {
+    // Hide all other sections (e.g., taskModal, eventModal, etc.)
+    document.getElementById('taskModal').style.display = 'none';
+    document.getElementById('eventModal').style.display = 'none';
+    document.getElementById('mainContent').style.display = 'none';
+    
+    // Show the home content
+    document.getElementById('homeContent').style.display = 'block';
+});
+
+// Load Home page content by default on page refresh
+window.onload = function() {
+    // Show home content by default
+    document.getElementById('homeContent').style.display = 'block';
+};
 
     </script>
     

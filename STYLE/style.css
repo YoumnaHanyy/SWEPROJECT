@@ -763,5 +763,3 @@ input:checked + .slider:before {
 
 .capture-options button:hover {
     background-color: #555; /* Slight color change on hover */
-}
-
