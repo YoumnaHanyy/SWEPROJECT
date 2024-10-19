@@ -207,8 +207,22 @@
     </div>
 </div>
 
+<div class="notes-list" id="notesList">
+    <h1>Notes</h1>
+    <!-- Existing notes go here -->
+   
+</div>
+
+
+
+
+
 
     <script>
+
+// Show main content (toolbar + note editor) when +Note button is clicked
+
+
         // Show main content (toolbar + note editor) when +Note button is clicked
       
 
@@ -227,6 +241,77 @@ document.querySelector('.cancel-btn').addEventListener('click', function() {
 
 
     <script>
+        // Function to hide the homeContent
+function hideHomeContent() {
+    document.getElementById('homeContent').style.display = 'none';
+}
+
+// Show main content (toolbar + note editor) when +Note button is clicked
+document.getElementById('noteBtn').addEventListener('click', function() {
+    const mainContent = document.getElementById('mainContent');
+    hideHomeContent(); // Hide home content
+    mainContent.style.display = 'block'; // Show the main content when +Note is clicked
+});
+
+// Show task modal when +Task button is clicked
+document.getElementById('taskbtn').addEventListener('click', function() {
+    const taskModal = document.getElementById('taskModal');
+    hideHomeContent(); // Hide home content
+    taskModal.style.display = 'flex'; // Show the task modal when the button is clicked
+});
+
+// Hide task modal when Cancel button is clicked
+document.querySelector('.cancel-btn').addEventListener('click', function() {
+    const taskModal = document.getElementById('taskModal');
+    taskModal.style.display = 'none'; // Hide the task modal when the Cancel button is clicked
+});
+
+// Show event modal when +Event button is clicked
+document.getElementById('eventbtn').addEventListener('click', function () {
+    const eventModal = document.getElementById('eventModal');
+    hideHomeContent(); // Hide home content
+    eventModal.style.display = 'flex'; // Show event modal
+});
+
+// Hide event modal when Cancel button is clicked
+document.querySelector('.cancel-event-btn').addEventListener('click', function () {
+    const eventModal = document.getElementById('eventModal');
+    eventModal.style.display = 'none'; // Hide event modal
+});
+
+// Handle creating the event
+document.querySelector('.create-event-btn').addEventListener('click', function () {
+    const title = document.getElementById('eventTitle').value;
+    const start = document.getElementById('eventStart').value;
+    const end = document.getElementById('eventEnd').value;
+
+    if (title && start && end) {
+        console.log(`Event Created: ${title}, Start: ${start}, End: ${end}`);
+        alert(`Event "${title}" created successfully!`);
+
+        document.getElementById('eventModal').style.display = 'none';
+    } else {
+        alert('Please fill all the fields.');
+    }
+});
+
+// Show home content when Home button is clicked
+document.getElementById('homeBtn').addEventListener('click', function() {
+    // Hide all other sections (e.g., taskModal, eventModal, etc.)
+    document.getElementById('taskModal').style.display = 'none';
+    document.getElementById('eventModal').style.display = 'none';
+    document.getElementById('mainContent').style.display = 'none';
+    
+    // Show the home content
+    document.getElementById('homeContent').style.display = 'block';
+});
+
+// Load Home page content by default on page refresh
+window.onload = function() {
+    // Show home content by default
+    document.getElementById('homeContent').style.display = 'block';
+};
+
         // Show main content (toolbar + note editor) when +Note button is clicked
         document.getElementById('noteBtn').addEventListener('click', function() {
             const mainContent = document.getElementById('mainContent');
@@ -316,6 +401,21 @@ window.onload = function() {
     // Show home content by default
     document.getElementById('homeContent').style.display = 'block';
 };
+// Show main content (toolbar + note editor) when +Note button is clicked
+document.getElementById('noteBtn').addEventListener('click', function() {
+    const notesList = document.getElementById('notesList'); // Get the notes section
+    const newNote = document.createElement('div'); // Create a new div for the note
+
+    newNote.classList.add('note-item'); // Add necessary styling class
+    newNote.innerHTML = `
+        <div class="note-card">
+            <p>Untitled</p>
+            <small>${new Date().toLocaleTimeString()}</small>
+        </div>
+    `;
+
+    notesList.appendChild(newNote); // Append the new note to the notes list
+});
 
     </script>
     

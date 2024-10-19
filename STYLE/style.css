@@ -1,5 +1,5 @@
 body {
-    background-color: #242424;
+    background-color: #1a1a1a;
     /* Gradient from top-left to bottom-right */
     font-family: Arial, sans-serif;
     color: white;
@@ -15,7 +15,7 @@ body {
     left: 10px;
     flex-direction: column;
     width: 220px; /* Sidebar width */
-    background-color: #262626;
+    background-color: #1a1a1a;
     padding: 10px;
     border: 1px solid rgb(72, 72, 72); /* Thin white border (2px) */
     border-radius: 10px;
@@ -148,7 +148,7 @@ body {
 
 /* Custom Scrollbar */
 .menu-items::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
 }
 
 .menu-items::-webkit-scrollbar-thumb {
@@ -702,7 +702,7 @@ input:checked + .slider:before {
     margin-left: 300px;
     padding: 20px;
     color: white;
-    background-color: #242424;
+    background-color: #1a1a1a;
 }
 
 .notes-header h3 {
@@ -762,4 +762,38 @@ input:checked + .slider:before {
 }
 
 .capture-options button:hover {
-    background-color: #555; /* Slight color change on hover */
+    background-color: #555; }
+
+
+    .notes-list {
+       margin-top: -100vh;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-left: 7vh;
+        padding: 10px;
+     
+        overflow-y: auto; /* Add this to allow scrolling if necessary */
+        max-height: 90vh; /* You can adjust the height */
+    }
+    
+    .note-item {
+        margin-left: 200px;
+        background-color: #333;
+        padding: 10px;
+        border-radius: 5px;
+        height: 30vh;
+        color: white;
+        width: 18%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .note-item p {
+        margin: 0;
+        font-weight: bold;
+    }
+    
+    .note-item small {
+        color: #888;
+    }
+    
