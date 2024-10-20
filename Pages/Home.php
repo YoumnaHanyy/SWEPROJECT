@@ -116,7 +116,7 @@
     <div class="new-content">
         <h2>Thirty more <br> exciting <br> improvements <br> in DoneDeal</h2>
         <p>Product lead Federico Simionato shares how<br> the team introduced drastic improvements to<br> DoneDeal's Editor, Calendar, Tasks, Mobile experience,<br> and more between April and <br>June 2024.</p>
-        <a href="#" class="learn-more-link">Read more</a>
+        <a href="#" class="read-more-link">Read more</a>
     </div>
     <div class="Exciting improvements">
         <img src="30mor.png" alt="Exciting improvements" />
