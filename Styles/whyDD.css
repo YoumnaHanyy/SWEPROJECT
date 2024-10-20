@@ -1,6 +1,14 @@
+* {
+
+    box-sizing: border-box;
+    font-family: "'Playfair Display', 'Times New Roman', serif";
+    
+}
+
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #fefbf6; /* light beige background */
+    color: #333;
+    font-family: 'Inter', sans-serif; /* Sans-serif for regular text */
+    background-color: #fffdf9; /* Light beige background */
     margin: 0;
     padding: 0;
     display: flex;
@@ -9,26 +17,160 @@ body {
     height: 100vh;
 }
 
-.why-donedeal-container {
+.container {
+    width: 100%;
     text-align: center;
-    padding: 40px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
 
-h1 {
-    font-size: 3em;
+.header {
+    display: flex;
+    justify-content: space-between; /* Ensures logo + links stay on the left and buttons go to the right */
+    align-items: center;
+    padding: 50px;
+    background-color: #f9f6f2;
+    border-bottom: 1px solid #000000;
+    font-family: "'Playfair Display', 'Times New Roman', serif";
+    font-size:xx-large;
+ 
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+}
+
+.header .logo img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.header nav {
+    display: flex;
+    align-items: center;
+    margin-left: 150px; /* Adds spacing between the logo and the nav links */
+    font-size: large;
+    padding-top: -300px;/*******************/
+    
+}
+
+.header nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-family: 'Inter', Arial, sans-serif;
+    transition: box-shadow 0.3s ease;
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    position: relative;
+}
+.header nav a:hover {
+    text-shadow: 2px 2px 5px grey; /* Adds a subtle shadow when hovered */
+}
+
+.left-buttons {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the far right */
+    align-items: center;
+    flex-grow: 1; /* Takes up available space to push buttons to the right */
+    font-size: large;
+}
+
+.header .login-btn,
+.header .signup-btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: 2px solid #333;
+    border-radius: 5px; 
+    cursor: pointer;
+    margin-left: 20px; /* Spacing between buttons */
+    font-size: large;
+}
+
+/* Ensures the last link doesn't push against the buttons */
+.header nav a:last-child {
+    margin-right: 0;
+}
+.dropdown {
+    position: relative;
+}
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f6f2;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Similar shadow effect */
+    border-radius: 5px;
+    padding: 20px;
+    width: 400px;
+  
+   
+    z-index: 1;
+}
+
+.dropdown-column {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    font-size: small;
+   padding-bottom: 50px;
+    
+}
+
+
+.dropdown-column span {
+    font-weight: bold;
+    color: #aaa;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    padding-top: 30px;
+}
+
+.dropdown-column a {
+    text-decoration: none;
+    color: #333;
+    margin: 5px 0;
+    justify-content: space-between;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: flex; /* Show dropdown on hover */
+}
+
+.dropdown-toggle:hover {
+    cursor: pointer;
+    color: #000; /* Optional: Change text color on hover */
+}
+
+
+
+/* General body styles */
+
+
+/* Main container */
+
+
+/* Heading (why choose?) */
+.container h1 {
+    font-family: 'Playfair Display', serif; /* Serif font for heading */
+    font-size: 3.5em;
     font-weight: 700;
+    color: #222; /* Dark gray/black color */
     margin-bottom: 20px;
 }
 
-p {
+/* Paragraph text */
+.container p {
     font-size: 1.2em;
     line-height: 1.6;
+    color: #333; /* Darker shade of gray for readability */
     margin-bottom: 40px;
 }
 
+/* Call to action button */
 .cta-button {
     background-color: #00a82d; /* Green button */
     color: white;
@@ -36,19 +178,24 @@ p {
     border: none;
     border-radius: 4px;
     font-size: 1.2em;
+    font-weight: bold;
     cursor: pointer;
     text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
-    background-color: #008b25;
+    background-color: #008b25; /* Darker green on hover */
 }
 
-a {
-    color: #00a82d;
+/* Link for logging in */
+.login-link {
+    font-size: 1em;
+    color: #00a82d; /* Green color for the login link */
     text-decoration: none;
 }
 
-a:hover {
+.login-link:hover {
     text-decoration: underline;
 }
