@@ -269,6 +269,7 @@ body {
     font-family: 'Merriweather', Georgia, serif;
     font-size: 2rem;
     margin-bottom: 20px;
+margin-right: 90px;
 }
 
 .collaboration-content p {
@@ -277,6 +278,7 @@ body {
     color: #666;
     line-height: 1.6;
     margin-bottom: 20px;
+    
 }
 
 .learn-more-link {
@@ -287,54 +289,19 @@ body {
    
 }
 
-.collaboration-images {
-    flex: 1;
+.collaboration-option {
     display: flex;
-    justify-content: space-evenly;
-    position: relative;
-}
-
-.collaboration-bubble {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    overflow: hidden;
-}
-
-.pink-bubble {
-    background-color: #f3b6d4;
-    top: -20px;
-    left: -20px;
-}
-
-.blue-bubble {
-    background-color: #a1cdf3;
-    top: 50px;
-    left: 50px;
-}
-
-.green-bubble {
-    background-color: #c0e6a3;
-    top: 120px;
-    left: -40px;
-}
-
-.orange-bubble {
-    background-color: #f3b688;
-    top: 180px;
-    left: 20px;
+    align-items: center; /* Align the image vertically with the text */
+    margin-bottom: 10px;
 }
 
 .profile-pic {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
+    width: 800px; /* Adjust size as needed */
+    height: auto; /* Adjust size as needed */
+    margin-left: 10px; /* Space between the text and the image */
+    border-radius: 50%; /* Make the image circular, if needed */
 }
+
 .whats-new {
     background-color: #f9f6f2;
     padding: 4rem 2rem;
@@ -375,8 +342,8 @@ body {
 
 .Exciting-improvements img {
     /* Limit the height */
-    width: 100px; /* Maintain aspect ratio */
-    height: 100px;
+    width: 10px; /* Maintain aspect ratio */
+    height: auto;
 }
 
 /* Media queries for smaller screens */
@@ -443,6 +410,12 @@ body {
 
 .social-icons a:hover img {
     opacity: 0.7; /* Slight fade effect on hover */
+}
+.option img {
+    width: 330px; /* Set the width you want */
+    height: auto;
+    margin-left: -180px; /* Space between the text and the image */
+    margin-top: -210px;
 }
 /***********************************************************************************************************************/
 

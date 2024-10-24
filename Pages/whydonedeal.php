@@ -55,5 +55,17 @@
         <a href="#" class="btn">Get DoneDeal free</a>
         <p class="login">Already have an account? <a href="#">Log in now</a></p>
     </div>
+    <div class="testimonial-container">
+    <div class="testimonial-image">
+        <img src="person.png" alt="Person's name" class="profile-pic">
+    </div>
+    <div class="testimonial-text">
+        <p>
+            "Every day and in every way, DoneDeal is there for my work and my life. It's my most used app, both at my desk and in my pocket."
+        </p>
+        <p class="author">John Doe, Your Product Certified Expert</p>
+    </div>
+</div>
+
 </body>
 </html>

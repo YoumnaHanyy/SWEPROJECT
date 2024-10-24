@@ -56,19 +56,42 @@
         <p>Remember everything and tackle any project with your notes, tasks,<br> and schedule all in one place.</p>
         <button class="cta-btn">Get DoneDeal free</button>
         <p><a href="#" class="login-link">Already have an account? Log in</a></p>
-
         <div class="options">
-            <div class="option">Wiki</div>
-            <div class="option">Planner</div>
-            <div class="option">Docs</div>
-            <div class="option">Class notes</div>
-            <div class="option">Research</div>
-            <div class="option">Task List</div>
-            <div class="option">Thought</div>
-            <div class="option">Meeting notes</div>
-            <div class="option">Journal</div>
+    <div class="option">
+        Wiki
+        <img src="path_to_image_for_wiki" alt="Wiki Image" />
+    </div>
+    <div class="option">
+        Planner
+        <img src="path_to_image_for_planner" alt="Planner Image" />
+    </div>
 
-        </div>
+    <div class="option">
+        Class notes
+        <img src="class note.png" alt="Class Notes Image" />
+    </div>
+    <div class="option">
+        Research
+        <img src="research.png" alt="Research Image" />
+    </div>
+    <div class="option">
+        Task List
+        <img src="tasklist.png" alt="Task List Image" />
+    </div>
+    <div class="option">
+        Thought
+        <img src="thoughts.png" alt="Thought Image" />
+    </div>
+    <div class="option">
+        Meeting notes
+        <img src="meetingnotes.png" alt="Meeting Notes Image" />
+    </div>
+    <div class="option">
+        Journal
+        <img src="journal.png" alt="Journal Image" />
+    </div>
+</div>
+
         <section class="features-section">
         <div class="feature">
             <img src="work.png" alt="Work Anywhere Icon" class="feature-icon">
@@ -98,19 +121,11 @@
         <a href="#" class="learn-more-link">Learn more</a>
     </div>
     <div class="collaboration-images">
-        <div class="collaboration-bubble pink-bubble">
-            <img src="person1.png" alt="Person 1" class="profile-pic">
-        </div>
-        <div class="collaboration-bubble blue-bubble">
-            <img src="person2.png" alt="Person 2" class="profile-pic">
-        </div>
-        <div class="collaboration-bubble green-bubble">
-            <img src="person3.png" alt="Person 3" class="profile-pic">
-        </div>
-        <div class="collaboration-bubble orange-bubble">
-            <img src="person4.png" alt="Person 4" class="profile-pic">
-        </div>
+    <div class="collaboration-option">
+        <img src="collab.png" alt="collab" class="profile-pic">
     </div>
+</div>
+
 </section>
 <section class="whats-new">
     <div class="new-content">
