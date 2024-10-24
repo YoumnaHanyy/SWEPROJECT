@@ -193,7 +193,9 @@ body {
 .login-link {
     font-size: 1em;
     color: #00a82d; /* Green color for the login link */
+    
     text-decoration: none;
+    
 }
 
 .login-link:hover {
@@ -212,10 +214,10 @@ body {
 }
 
 .profile-pic {
-    width: 150px; /* Adjust the size of the image */
+    width: 300px; /* Adjust the size of the image */
     height: auto; /* Maintain aspect ratio */
     border-radius: 50%; /* Make the image circular */
-    margin-right: 400px; /* Add space between the image and text */
+    margin-right: 100px; /* Add space between the image and text */
 }
 
 .testimonial-text {
@@ -223,13 +225,14 @@ body {
     font-size: 1.2em;
     color: #333;
     text-align: left; /* Aligns text to the left */
-    max-width: 450px; /* Set a max-width to force line breaks */
+    max-width:950px; /* Set a max-width to force line breaks */
     line-height: 1.4em; /* Increase line height for readability */
+    font-size: large;
 }
 
 .author {
     font-weight: bold;
     margin-top: 10px;
     font-family: 'Inter', sans-serif;
-    font-size: smaller;
+    font-size: 0.8em;
 }
