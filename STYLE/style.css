@@ -817,15 +817,16 @@ margin-left: 40vh;
 /* Task Item Styling */
 .task-item {
     display: flex;
-    align-items: center;
+   margin-left: -40vh;
     padding: 1rem;
-    border: 1px solid #ddd;
+    border-bottom: #333;
+    border-top: #333;
     border-radius: 5px;
     margin-bottom: 10px;
-    background-color: #444;
+    background-color: #222222;
     flex-direction: column;
     position: relative;
-    width: 200vh; /* Make the task item take full width */
+    width: 173vh; /* Make the task item take full width */
 }
 
 /* Task Title as Header */

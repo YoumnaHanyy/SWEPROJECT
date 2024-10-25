@@ -224,6 +224,16 @@
 
 
     <script>
+        window.onload = function() {
+    // Hide other content sections
+    document.getElementById('mainContent').style.display = 'none';
+    document.getElementById('taskContent').style.display = 'none';
+    document.getElementById('eventModal').style.display = 'none';
+    document.getElementById('taskModal').style.display = 'none';
+
+    // Show the home content by default
+    document.getElementById('homeContent').style.display = 'block';
+};
 // Store tasks in an array to be displayed later
 
     // Store tasks in an array
@@ -369,7 +379,7 @@ function deleteTask(index) {
     // Show task content when "Tasks" button is clicked
     document.getElementById('tasksBtn').addEventListener('click', function() {
         hideHomeContent();
-        document.getElementById('mainContent1').style.display = 'none';
+        document.getElementById('mainContent').style.display = 'none';
         document.getElementById('taskContent').style.display = 'block';
         displayTasks(); // Display the tasks when the Tasks button is clicked
     });
