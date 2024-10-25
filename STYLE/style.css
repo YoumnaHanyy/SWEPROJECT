@@ -705,6 +705,10 @@ input:checked + .slider:before {
     background-color: #1a1a1a;
 }
 
+
+.home-content h2{
+    font-size: 20px;
+}
 .notes-header h3 {
     color: white;
     font-size: 22px;
@@ -797,3 +801,82 @@ input:checked + .slider:before {
         color: #888;
     }
     
+
+   /* Task Display Section */
+/* Task Display Container Styling */
+.main-content1 h2{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+margin-left: 40vh;
+}
+.task-display {
+    padding: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Task Item Styling */
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #444;
+    flex-direction: column;
+    position: relative;
+    width: 200vh; /* Make the task item take full width */
+}
+
+/* Task Title as Header */
+.task-item h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer; /* Change cursor to pointer to indicate clickability */
+}
+
+/* Checkbox and Delete Button Styling */
+.task-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Meta information hidden by default */
+.task-meta {
+    font-size: 0.9rem;
+    color: #ffffff;
+    padding-top: 0.5rem;
+    display: none; /* Hide details by default */
+}
+
+/* Checkbox Styling */
+.task-checkbox {
+    margin-right: 10px;
+}
+
+/* Delete Button Styling */
+.delete-btn {
+    display: none;
+    color: red;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    width: 100%;
+}
+
+/* Show delete button when the checkbox is selected */
+.task-item.selected .delete-btn {
+    display: block;
+}
+
+/* Show meta details when the task item is clicked */
+.task-item.active .task-meta {
+    display: block; /* Show details when the task is active */
+}
