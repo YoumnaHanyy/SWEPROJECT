@@ -107,11 +107,6 @@
    
 </div>
 
-<div class="main-content1" id="taskContent" style="display: none;">
-    <h2>Your Tasks</h2>
-    <div id="taskDisplay" class="task-display">
-        <!-- Tasks will be displayed here -->
-    </div>
 
     <div class="task-modal" id="taskModal">
         <div class="task-modal-content">
@@ -215,6 +210,11 @@
     </div>
 </div>
 
+<div class="main-content1" id="taskContent" style="display: none;">
+    <h2>Your Tasks</h2>
+    <div id="taskDisplay" class="task-display">
+        <!-- Tasks will be displayed here -->
+    </div>
 
 <div id="mainContent1">
     <div id="taskListContainer"></div>
@@ -293,7 +293,7 @@ function saveTask() {
     };
 
     tasks.push(task);
-    clearTaskModal();
+    clearTaskModal();a
     displayTasks();
 }
 
@@ -562,7 +562,7 @@ document.getElementById('homeBtn').addEventListener('click', function() {
     document.getElementById('taskModal').style.display = 'none';
     document.getElementById('eventModal').style.display = 'none';
     document.getElementById('mainContent').style.display = 'none';
-    
+    document.getElementById('taskContent').style.display = 'none';
     // Show the home content
     document.getElementById('homeContent').style.display = 'block';
 });
