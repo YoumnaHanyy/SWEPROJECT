@@ -162,6 +162,7 @@ body {
    padding-top: -150px;
 }
 
+
 /* Paragraph text */
 .container p {
     font-size: 1.9em;
@@ -193,7 +194,7 @@ body {
 .login-link {
     font-size: 1em;
     color: #00a82d; /* Green color for the login link */
-    
+    margin-bottom: 100px;
     text-decoration: none;
     
 }
@@ -205,12 +206,11 @@ body {
     display: flex;
     align-items: center; /* Aligns image and text vertically */
     justify-content: flex-start; /* Ensures the image stays to the left */
-    
     background-color: #fffdf9; /* Light beige background */
     border-radius: 10px; /* Rounded corners */
     max-width: 100%; /* Expand the width as needed */
     margin-left: 100px;
-    padding: 20px; /* Add some padding inside the container */
+    padding-bottom: -100px; /* Add some padding inside the container */
 }
 
 .profile-pic {
@@ -228,11 +228,24 @@ body {
     max-width:950px; /* Set a max-width to force line breaks */
     line-height: 1.4em; /* Increase line height for readability */
     font-size: large;
+    padding-top: -100px;
+}
+.testimonial-text p{
+    margin-top: 200px;
+}
+
+.author-container {
+    text-align: left; /* Align the author text to the right */
+    margin-bottom: 100px;/* Add space above the author text */
+    margin-left: -40px;
 }
 
 .author {
-    font-weight: bold;
-    margin-top: 10px;
     font-family: 'Inter', sans-serif;
-    font-size: 0.8em;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #555;
+    letter-spacing: 0.5px;
+    margin: 0;
 }
+
