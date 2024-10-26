@@ -21,6 +21,10 @@ if ($conn->connect_error) {
 $message = '';
 $messageClass = '';
 
+// Define admin credentials
+$admin_username = "admin";
+$admin_password = "admin123"; // Change this to a more secure password
+
 // Check if form data has been submitted for signup
 if (isset($_POST['signup'])) {
     $username = $_POST["signup_username"];
@@ -88,30 +92,37 @@ if (isset($_POST['login'])) {
         $message = "All fields are required!";
         $messageClass = "error";
     } else {
-        // Prepare a statement to check if the user exists
-        $stmt = $conn->prepare("SELECT password FROM users WHERE username = ?");
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $stmt->store_result();
+        // Check if the username is admin
+        if ($username === $admin_username && $password === $admin_password) {
+            $message = "Admin Login successful! Welcome, " . htmlspecialchars($username) . ".";
+            $messageClass = "success";
+            // Redirect to admin dashboard or another page here
+        } else {
+            // Prepare a statement to check if the user exists
+            $stmt = $conn->prepare("SELECT password FROM users WHERE username = ?");
+            $stmt->bind_param("s", $username);
+            $stmt->execute();
+            $stmt->store_result();
 
-        // If the user exists, verify the password
-        if ($stmt->num_rows > 0) {
-            $stmt->bind_result($hashed_password);
-            $stmt->fetch();
+            // If the user exists, verify the password
+            if ($stmt->num_rows > 0) {
+                $stmt->bind_result($hashed_password);
+                $stmt->fetch();
 
-            if (password_verify($password, $hashed_password)) {
-                $message = "Login successful! Welcome back, " . htmlspecialchars($username) . ".";
-                $messageClass = "success";
-                // Redirect to another page here if necessary
+                if (password_verify($password, $hashed_password)) {
+                    $message = "Login successful! Welcome back, " . htmlspecialchars($username) . ".";
+                    $messageClass = "success";
+                    // Redirect to user dashboard or another page here
+                } else {
+                    $message = "Invalid password!";
+                    $messageClass = "error";
+                }
             } else {
-                $message = "Invalid password!";
+                $message = "Username not found!";
                 $messageClass = "error";
             }
-        } else {
-            $message = "Username not found!";
-            $messageClass = "error";
+            $stmt->close();
         }
-        $stmt->close();
     }
 }
 
@@ -277,14 +288,14 @@ $conn->close();
             <form action="" method="POST">
                 <h1 style=" color: green;">Create Account</h1>
                 
-                <?php if ($message): ?>
-                    <div class="<?= $messageClass; ?>"><?= $message; ?></div>
+                <?php if ($message) : ?>
+                    <div class="<?php echo $messageClass; ?>"><?php echo $message; ?></div>
                 <?php endif; ?>
 
-                <input type="text" name="signup_username" placeholder="Username" required>
-                <input type="email" name="signup_email" placeholder="Email" required>
-                <input type="password" name="signup_password" placeholder="Password" required>
-                <button type="submit" name="signup">Sign Up</button>
+                <input type="text" placeholder="Username" name="signup_username" required />
+                <input type="email" placeholder="Email" name="signup_email" required />
+                <input type="password" placeholder="Password" name="signup_password" required />
+                <button name="signup">Sign Up</button>
             </form>
         </div>
 
@@ -292,19 +303,19 @@ $conn->close();
         <div class="form-container sign-in-container">
             <form action="" method="POST">
                 <h1 style=" color: green;">Sign in</h1>
-                
-                <?php if ($message): ?>
-                    <div class="<?= $messageClass; ?>"><?= $message; ?></div>
+
+                <?php if ($message) : ?>
+                    <div class="<?php echo $messageClass; ?>"><?php echo $message; ?></div>
                 <?php endif; ?>
 
-                <input type="text" name="login_username" placeholder="Username" required>
-                <input type="password" name="login_password" placeholder="Password" required>
-                <button type="submit" name="login">Sign In</button>
+                <input type="text" placeholder="Username" name="login_username" required />
+                <input type="password" placeholder="Password" name="login_password" required />
+                <button name="login">Sign In</button>
             </form>
         </div>
 
-        <!-- Overlay Section -->
-        <div class="overlay-container">
+         <!-- Overlay Section -->
+         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
                     <h1>Welcome Back!</h1>
