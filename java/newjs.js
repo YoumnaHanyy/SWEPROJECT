@@ -362,6 +362,7 @@ window.onload = function() {
     const priorityFilter = document.getElementById('filterPriority').value;
     const searchQuery = document.getElementById('searchTask').value.toLowerCase();
     
+
     // Loop through tasks and apply the filters (Assuming tasks array contains all the task details)
     tasks.forEach((task, index) => {
     let taskElement = document.querySelector(`[data-index="${index}"]`);
@@ -378,3 +379,4 @@ window.onload = function() {
     });
     }
     
+

@@ -192,7 +192,7 @@
                 <small>Oct 14</small>
             </div>
         </div>
-        
+
     <div class="recently-captured">
         <h3>Recently Captured</h3>
         <div class="capture-options">
@@ -239,6 +239,7 @@
         <!-- Search Bar -->
         <input type="text" id="searchTask" placeholder="Find tasks..." class="search-bar1">
     </div>
+
 
     <!-- Task Tabs -->
     <div class="task-tabs">
