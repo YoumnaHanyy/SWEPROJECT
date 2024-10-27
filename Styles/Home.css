@@ -311,6 +311,7 @@ margin-right: 90px;
     align-items: center;
     text-align: center;
     padding-top: 100px;
+    margin-left: 700px;
 }
 
 .whats-new h2 {
@@ -318,7 +319,7 @@ margin-right: 90px;
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 1rem;
-    margin-right: 900px;
+    margin-right: -300px;
 }
 
 .whats-new p {
@@ -326,10 +327,10 @@ margin-right: 90px;
     font-size: 1.2rem;
     color: #666;
     margin-bottom: 2rem;
-    margin-right: 900px;
+   margin-right: -300px;
 }
 .read-more-link {
-    margin-right: 920px;
+    margin-right: 1300px;
     font-family: 'Inter', Arial, sans-serif;
     font-weight: 800;
     color: black;
@@ -339,12 +340,21 @@ margin-right: 90px;
     flex: 1; /* The image will take up equal space to the text */
     display: flex;
     justify-content: flex-end; /* Align the image to the right */
+ 
+    
 }
+
+.new-content img{
+    margin-right: 1200px;
+}
+
 
 .Exciting-improvements img {
     /* Limit the height */
     width: 10px; /* Maintain aspect ratio */
     height: auto;
+  
+  
 }
 
 /* Media queries for smaller screens */
