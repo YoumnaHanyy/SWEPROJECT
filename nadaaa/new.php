@@ -47,6 +47,18 @@
             <button class="btn"><i class="fas fa-share-alt"></i> Shared with Me</button>
             <button class="btn"><i class="fas fa-trash"></i> Trash</button>
         </div>
+        <div class="notebook-modal" id="notebookModal">
+        <div class="notebook-modal-content">
+            <h2>Create New Notebook</h2>
+            <p>Notebooks are useful for grouping notes around a common topic. They can be private or shared.</p>
+            <label for="notebookName">Name</label>
+            <input type="text" id="notebookName" placeholder="Notebook name">
+            <div class="notebook-actions">
+                <button class="cancel-notebook-btn" onclick="closeNotebookModal()">Cancel</button>
+                <button class="create-notebook-btn" onclick="createNotebook()">Create Notebook</button>
+            </div>
+        </div>
+    </div>
 
         <div class="download-upgrade">
             <button class="download-btn">Download the app</button>
@@ -261,21 +273,6 @@
         <!-- Tasks will be displayed here -->
          
     </div>
-    <!-- Notebook Creation Modal -->
-<div class="notebook-modal" id="notebookModal" style="display: none;">
-    <div class="notebook-modal-content">
-        <h2>Create New Notebook</h2>
-        <p>Notebooks are useful for grouping notes around a common topic. They can be private or shared.</p>
-        
-        <label for="notebookName">Name</label>
-        <input type="text" id="notebookName" placeholder="Notebook name">
-        
-        <div class="notebook-actions">
-            <button class="cancel-notebook-btn" onclick="closeNotebookModal()">Cancel</button>
-            <button class="create-notebook-btn" onclick="createNotebook()">Create Notebook</button>
-        </div>
-    </div>
-</div>
 
 
     
