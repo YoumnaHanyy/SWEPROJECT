@@ -258,8 +258,9 @@ body {
 .author-container {
     text-align: left; /* Align the author text to the right */
     margin-bottom: 100px;/* Add space above the author text */
-    margin-left: -40px;
+    margin-right: 10px;
     font-size: xx-small;
+    margin-top: -170px;
    
 
 }
