@@ -693,8 +693,26 @@ input:checked + .slider:before {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow:
+    box-shadow: 
 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 999;
+    z-index: 999; 
 
+  }
+
+  /* Additional styles for a more professional look */
+  .event-modal-content {
+    max-width: 400px;
+  }
+
+  .event-fields label {
+    font-size: 14px;
+  }
+
+  .event-fields input {
+    font-size: 14px;
+  }
+
+  .event-actions button {
+    font-size: 14px;
+    padding: 10px 20px;
   }
