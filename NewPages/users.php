@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
     <!-- Linking to your CSS file -->
-    <link rel="stylesheet" href="../STYLE/style.css">
+    <link rel="stylesheet" href="../STYLE/user.css">
 </head>
 <body>
     <div class="sidebar-menu">

@@ -48,7 +48,6 @@ toggleSelection(taskPriorityButtons);
 function saveTask() {
 const description = taskDescriptionInput.value;
 const assignedTo = taskAssignedInput.value;
-const selectedCategory = document.getElementById('taskCategory').value; // Get the selected category
 let dueDate = ''; 
 let reminder = ''; 
 let priority = ''; 
@@ -63,7 +62,6 @@ const task = {
 description: description || 'No Description', 
 assignedTo: assignedTo || 'Unassigned',
 dueDate: dueDate,
-category: selectedCategory,  // Store the selected category
 reminder: reminder,
 priority: priority,
 flag: isFlagged
@@ -114,14 +112,15 @@ taskItem.innerHTML = `
     <div class="task-meta">${task.dueDate || '-'}</div>
     <div class="task-meta">${task.reminder || '-'}</div>
     <div class="task-meta">${task.assignedTo || '-'}</div>
-     <div class="task-meta">Category: ${task.category || 'No Category'}</div> <!-- Display the category -->
    
 `;
 
 // Append the task item to the display
 taskDisplay.appendChild(taskItem);
 
-
+taskItem.querySelector('.task-title').addEventListener('click', function () {
+    openTaskModalForEdit(index);
+});
 });
 document.querySelectorAll('.task-checkbox').forEach(checkbox => {
     checkbox.addEventListener('change', function () {
@@ -133,7 +132,66 @@ document.querySelectorAll('.task-checkbox').forEach(checkbox => {
 taskCount.textContent = tasks.length; // Update the number of tasks
 }
 
+function openTaskModalForEdit(taskIndex) {
+    const task = tasks[taskIndex]; // Get the selected task
 
+    // Populate modal fields with task data
+    document.querySelector('textarea').value = task.description;
+    document.querySelector('input[placeholder="Assign"]').value = task.assignedTo;
+    document.getElementById('taskCategory').value = task.category;
+    document.querySelectorAll('.task-date-options button').forEach(button => {
+        if (button.textContent === task.dueDate) {
+            button.classList.add('selected');
+        } else {
+            button.classList.remove('selected');
+        }
+    });
+    document.querySelectorAll('.task-reminder-options button').forEach(button => {
+        if (button.textContent === task.reminder) {
+            button.classList.add('selected');
+        } else {
+            button.classList.remove('selected');
+        }
+    });
+    document.querySelectorAll('.task-priority-options button').forEach(button => {
+        if (button.textContent === task.priority) {
+            button.classList.add('selected');
+        } else {
+            button.classList.remove('selected');
+        }
+    });
+    document.querySelector('input[type="checkbox"]').checked = task.flag === 'Flagged';
+
+    // Show the modal
+    document.getElementById('taskModal').style.display = 'flex';
+
+    // Update task on "Create Task" button click (which is now an "Update Task" button)
+    document.querySelector('.create-btn').textContent = 'Update Task'; // Change button text to "Update Task"
+    document.querySelector('.create-btn').onclick = function () {
+        updateTask(taskIndex);
+    };
+}
+
+// Function to update the task with the modified data
+function updateTask(taskIndex) {
+    // Update task with new data from modal
+    tasks[taskIndex].description = document.querySelector('textarea').value;
+    tasks[taskIndex].assignedTo = document.querySelector('input[placeholder="Assign"]').value;
+    tasks[taskIndex].category = document.getElementById('taskCategory').value;
+    tasks[taskIndex].dueDate = Array.from(document.querySelectorAll('.task-date-options button'))
+        .find(button => button.classList.contains('selected'))?.textContent || '-';
+    tasks[taskIndex].reminder = Array.from(document.querySelectorAll('.task-reminder-options button'))
+        .find(button => button.classList.contains('selected'))?.textContent || '-';
+    tasks[taskIndex].priority = Array.from(document.querySelectorAll('.task-priority-options button'))
+        .find(button => button.classList.contains('selected'))?.textContent || '-';
+    tasks[taskIndex].flag = document.querySelector('input[type="checkbox"]').checked ? 'Flagged' : 'Not Flagged';
+
+    // Close the modal
+    document.getElementById('taskModal').style.display = 'none';
+
+    // Re-display tasks to reflect the changes
+    displayTasks();
+}
 
 function toggleTaskCompletion(index) {
 tasks[index].completed = !tasks[index].completed; // Toggle the completion status
@@ -381,24 +439,6 @@ if (matchCategory && matchDeadline && matchPriority && matchSearch) {
 }
 });
 }
-function filterTasksByCategory(category) {
-    const taskItems = document.querySelectorAll('.task-item');
-
-    taskItems.forEach((taskItem) => {
-        const taskCategory = taskItem.getAttribute('data-category');
-        if (category === 'all' || taskCategory === category) {
-            taskItem.style.display = 'flex';  // Show matching tasks
-        } else {
-            taskItem.style.display = 'none';  // Hide non-matching tasks
-        }
-    });
-}
-
-// Example usage (when selecting a category from dropdown)
-document.getElementById('filterCategory').addEventListener('change', function() {
-    const selectedCategory = this.value;
-    filterTasksByCategory(selectedCategory);
-});
 
 document.getElementById('customDateBtn').addEventListener('click', function () {
     // Show the hidden input field for the date picker

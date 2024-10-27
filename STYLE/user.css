@@ -991,7 +991,8 @@ color: rgba(255, 255, 255, 0.842);
     border: none;
     padding: 8px 15px;
     border-radius: 5px;
-    width: 200px;
+    margin: 10px;
+    width: 160px;
 }
 
 /* Task table header styling */
@@ -1027,4 +1028,3 @@ color: rgba(255, 255, 255, 0.842);
         color: #555;
     }
 
-    
