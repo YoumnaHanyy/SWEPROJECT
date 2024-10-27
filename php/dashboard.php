@@ -255,9 +255,6 @@ $result = $conn->query($sql);
         <p id="deletion-message" style="display:none; margin-top: 20px;"></p> <!-- Message display -->
     </div>
 </div>
-
-
-
 <div class="scrollable-div">
 
                 <table>
@@ -423,10 +420,6 @@ $result = $conn->query($sql);
             <small class="task-time">Due: 10:49AM</small>
         </div>
     </div>
-
-
-
-
 </body>
 <script src="..//assets/js/dash.js">
  
