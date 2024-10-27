@@ -160,7 +160,7 @@ body {
 }
 
 .options .option:hover {
-    background-color: #f0f0f0;
+    background-color:  #f9f6f2;
     transform: translateY(-10px); /* Lift effect */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Bigger shadow on hover */
     border-color: #bbb;
