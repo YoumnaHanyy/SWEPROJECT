@@ -62,14 +62,17 @@
         <button class="cta-btn">Get DoneDeal free</button>
 </a>
         <p><a href="login.php" class="login-link">Already have an account? Log in</a></p>
+
+        <div class="carousel-container">
+    <div class="carousel-wrapper">
         <div class="options">
     <div class="option">
         Wiki
-        <img src="path_to_image_for_wiki" alt="Wiki Image" />
+        <img src="../Images/wikii.png" alt="Wiki Image" />
     </div>
     <div class="option">
         Planner
-        <img src="path_to_image_for_planner" alt="Planner Image" />
+        <img src="../Images/planner.png" alt="Planner Image" />
     </div>
 
     <div class="option">
@@ -96,6 +99,10 @@
         Journal
         <img src="../Images/journal.png" alt="Journal Image" />
     </div>
+</div>
+</div>
+<button class="arrow left-arrow">&#9664;</button>
+    <button class="arrow right-arrow">&#9654;</button>
 </div>
 
         <section class="features-section">
@@ -183,6 +190,33 @@ window.addEventListener('scroll', function() {
         header.classList.remove('header-blur');
     }
 });
+
+const carouselWrapper = document.querySelector('.carousel-wrapper');
+const options = document.querySelectorAll('.option');
+const arrowLeft = document.querySelector('.left-arrow');
+const arrowRight = document.querySelector('.right-arrow');
+
+let currentPosition = 0;
+const optionWidth = options[0].clientWidth + 20; // Get the width of an option including margins
+const visibleOptions = 4; // Number of visible options at once
+
+// Function to move the carousel to the left
+arrowLeft.addEventListener('click', () => {
+    if (currentPosition < 0) {
+        currentPosition += optionWidth;
+        carouselWrapper.style.transform = `translateX(${currentPosition}px)`;
+    }
+});
+
+// Function to move the carousel to the right
+arrowRight.addEventListener('click', () => {
+    const maxPosition = -(optionWidth * (options.length - visibleOptions));
+    if (currentPosition > maxPosition) {
+        currentPosition -= optionWidth;
+        carouselWrapper.style.transform = `translateX(${currentPosition}px)`;
+    }
+});
+
 </script>
 </body>
 </html>

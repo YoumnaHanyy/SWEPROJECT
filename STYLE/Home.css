@@ -176,6 +176,50 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Bigger shadow on hover */
     border-color: #bbb;
 }
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden; /* Hide the overflow to show sliding effect */
+}
+
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #f9f6f2;
+    color: rgb(0, 0, 0);
+    border: 1px solid black;
+   
+    font-size: 2rem;
+    width: 70px;  /* Adjust the width to make it a circle */
+    height: 70px; /* Adjust the height to make it a circle */
+    border-radius: 50%; /* This makes the arrow circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    transform-origin: center;
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+.arrow:hover {
+    
+    transform: scale(1.2); /* Increase size by 20% on hover */
+}
 .dropdown {
     position: relative;
 }
@@ -388,7 +432,9 @@ margin-right: 90px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px;
+    margin-bottom: -4vh;
+    padding: 20px;
+    width: 100%;
     background-color:#c0e6a3; /* Background color similar to the image */
     border-top: 1px solid #c0e6a3; /* Thin border at the top */
 }
