@@ -47,7 +47,7 @@
             <button class="btn"><i class="fas fa-share-alt"></i> Shared with Me</button>
             <button class="btn"><i class="fas fa-trash"></i> Trash</button>
         </div>
-      <!-- Notebook Modal Structure -->
+    <!-- Notebook Modal Structure -->
 <div class="notebook-modal" id="notebookModal">
     <div class="notebook-modal-content">
         <h2>Create New Notebook</h2>
@@ -63,6 +63,7 @@
 
 <!-- Container for displaying created notebooks -->
 <div id="notebookContainer" class="notebook-container"></div>
+
 
         <div class="download-upgrade">
             <button class="download-btn">Download the app</button>
