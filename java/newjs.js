@@ -334,6 +334,7 @@ window.onload = function() {
     document.getElementById('homeContent').style.display = 'block';
     });
     
+    
     // Load Home page content by default on page refresh
     window.onload = function() {
     // Show home content by default
