@@ -389,49 +389,43 @@ window.onload = function() {
         document.querySelector(".cancel-notebook-btn").addEventListener("click", closeModal);
         document.querySelector(".create-notebook-btn").addEventListener("click", createNotebook);
     });
- // Function to open the Notebook modal
- function openModal() {
-    document.getElementById("notebookModal").style.display = "flex";
-}
 
-// Function to close the Notebook modal
-function closeModal() {
-    document.getElementById("notebookModal").style.display = "none";
-    clearForm(); // Clear form and error message when modal closes
-}
-
-// Clear form and error message
-function clearForm() {
-    document.getElementById("notebookName").value = ""; // Clear the input field
-    document.getElementById("error-message").textContent = ""; // Clear error message
-}
-
-// Function to handle creating a new notebook
-function createNotebook() {
-    const notebookNameInput = document.getElementById("notebookName");
-    const notebookName = notebookNameInput.value.trim();
-    const errorMessage = document.getElementById("error-message");
-
-    if (notebookName === "") {
-        // Display error if input is empty
-        errorMessage.textContent = "Please enter a notebook name.";
-        return; // Exit the function if the input is empty
+    // Function to open the Notebook modal
+    function openModal() {
+        document.getElementById("notebookModal").style.display = "flex";
     }
 
-    // Hide modal and clear form
-    closeModal();
+    // Function to close the Notebook modal
+    function closeModal() {
+        document.getElementById("notebookModal").style.display = "none";
+        clearForm(); // Clear form and error message when modal closes
+    }
 
-    // Display notebook in the background
-    const notebookContainer = document.getElementById("notebookContainer");
-    const notebookDiv = document.createElement("div");
-    notebookDiv.className = "notebook";
-    
-    // Set the notebook name and additional content
-    notebookDiv.innerHTML = `
-        <h3>${notebookName}</h3>
-        <p class="notebook-date">${new Date().toLocaleDateString()}</p>
-        <button class="view-notebook-btn">View Notes</button>
-    `;
-    
-    notebookContainer.appendChild(notebookDiv); // Append the new notebook to the container
-}
+    // Clear form and error message
+    function clearForm() {
+        document.getElementById("notebookName").value = ""; // Clear the input field
+        document.getElementById("error-message").textContent = ""; // Clear error message
+    }
+
+    // Function to handle creating a new notebook
+    function createNotebook() {
+        const notebookNameInput = document.getElementById("notebookName");
+        const notebookName = notebookNameInput.value.trim();
+        const errorMessage = document.getElementById("error-message");
+
+        if (notebookName === "") {
+            // Display error if input is empty
+            errorMessage.textContent = "Please enter a notebook name.";
+            return; // Exit the function if the input is empty
+        }
+
+        // Hide modal and clear form
+        closeModal();
+
+        // Display notebook in the background
+        const notebookContainer = document.getElementById("notebookContainer");
+        const notebookDiv = document.createElement("div");
+        notebookDiv.className = "notebook";
+        notebookDiv.textContent = notebookName; // Set the notebook name
+        notebookContainer.appendChild(notebookDiv); // Append the new notebook to the container
+    }
