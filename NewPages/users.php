@@ -38,8 +38,11 @@
         </div>
         
         <div class="menu-items">
-            <button class="btn"><i class="fa-solid fa-house"></i> Home</button>
-            <button class="btn"><i class="fas fa-tasks"></i> Tasks</button>
+        <button class="btn" id="homeBtn"><i class="fa-solid fa-house"></i> Home</button>
+
+        <button class="btn" id="tasksBtn"><i class="fas fa-tasks"></i> Tasks</button>
+
+            
             <button class="btn"><i class="fas fa-file"></i> Files</button>
             <button class="btn"><i class="fas fa-calendar"></i> Calendar</button>
             <button class="btn"><i class="fas fa-book"></i> Notebooks</button>
@@ -101,7 +104,8 @@
         </div>
     </div>
 
-
+   
+</div>
 
 
     <div class="task-modal" id="taskModal">
@@ -170,15 +174,281 @@
     </div>
 </div>
 
+<div class="home-content" id="homeContent">
+    <h2>Ready to start taking notes?</h2>
+    <div class="notes-header">
+        <h3>yomna2207085c5a50bc41c3d015e's Home</h3>
+    </div>
+    <div class="notes-section">
+        <div class="note-card">
+            <p>Untitled</p>
+            <small>Oct 15</small>
+        </div>
+        <div class="note-card">
+            <p>Meeting note</p>
+            <p>Date & Time Goal<br>Attendees Me<br>Agenda Notes<br>Action Items</p>
+            <small>Oct 14</small>
+        </div>
+        <div class="note-card">
+            <p>Untitled</p>
+            <small>Oct 14</small>
+        </div>
+        <div class="note-card">
+            <p>Untitled</p>
+            <small>Oct 14</small>
+        </div>
+    </div>
+    <div class="recently-captured">
+        <h3>Recently Captured</h3>
+        <div class="capture-options">
+            <button>Web Clips</button>
+            <button>Images</button>
+            <button>Documents</button>
+            <button>Audio</button>
+            <button>Emails</button>
+        </div>
+    </div>
+</div>
+
+<div class="main-content1" id="taskContent" style="display: none;">
+    <h2>Your Tasks </h2>
+    <h4><span id="taskCount">0</span> tasks</h4>
+    <div class="task-tabs">
+        <span class="tab active">All tasks</span>
+        <span class="tab">School</span>
+        <span class="tab">Work</span>
+        <span class="tab">Personal</span>
+        <span class="tab">Assigned</span>
+    </div>
+
+    <!-- Table-like header for task details -->
+    <div class="task-table-header">
+        <span class="column-header">Title</span>
+        <span class="column-header">Due date</span>
+        <span class="column-header">Assigned note</span>
+        <span class="column-header">Assigned to</span>
+    </div>
+
+    <div id="taskDisplay" class="task-display">
+        <!-- Tasks will be displayed here -->
+    </div>
+
+<div id="mainContent1">
+    <div id="taskListContainer"></div>
+</div>
+
+
 
 
     <script>
-        // Show main content (toolbar + note editor) when +Note button is clicked
-      
+        window.onload = function() {
+    // Hide other content sections
+    document.getElementById('mainContent').style.display = 'none';
+    document.getElementById('taskContent').style.display = 'none';
+    document.getElementById('eventModal').style.display = 'none';
+    document.getElementById('taskModal').style.display = 'none';
 
-        // Show task modal when +Task button is clicked
-        document.getElementById('taskbtn').addEventListener('click', function() {
+    // Show the home content by default
+    document.getElementById('homeContent').style.display = 'block';
+};
+// Store tasks in an array to be displayed later
+
+    // Store tasks in an array
+ 
+    // Store tasks in an array
+    let tasks = [];
+
+    // Get references to the task fields
+    const taskDescriptionInput = document.querySelector('textarea');
+    const taskDateButtons = document.querySelectorAll('.task-date-options button');
+    const taskReminderButtons = document.querySelectorAll('.task-reminder-options button');
+    const taskPriorityButtons = document.querySelectorAll('.task-priority-options button');
+    const taskAssignedInput = document.querySelector('input[placeholder="Assign"]');
+    const taskFlagInput = document.querySelector('input[type="checkbox"]');
+
+
+
+    // Function to toggle selection for buttons
+function toggleSelection(buttons) {
+    buttons.forEach(button => {
+        button.addEventListener('click', function () {
+            // Remove selected class from all buttons
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            // Add selected class to the clicked button
+            this.classList.add('selected');
+        });
+    });
+}
+
+// Apply toggle selection function to each button group
+toggleSelection(taskDateButtons);
+toggleSelection(taskReminderButtons);
+toggleSelection(taskPriorityButtons);
+
+    // Function to save the task
+// Update the saveTask function
+function saveTask() {
+    const description = taskDescriptionInput.value;
+    const assignedTo = taskAssignedInput.value;
+    let dueDate = ''; 
+    let reminder = ''; 
+    let priority = ''; 
+    const isFlagged = taskFlagInput.checked ? 'Flagged' : 'Not Flagged';
+
+    // Get selected values
+    dueDate = Array.from(taskDateButtons).find(button => button.classList.contains('selected'))?.textContent || 'No Due Date';
+    reminder = Array.from(taskReminderButtons).find(button => button.classList.contains('selected'))?.textContent || 'No Reminder';
+    priority = Array.from(taskPriorityButtons).find(button => button.classList.contains('selected'))?.textContent || 'No Priority';
+
+    const task = {
+        description: description || 'No Description', 
+        assignedTo: assignedTo || 'Unassigned',
+        dueDate: dueDate,
+        reminder: reminder,
+        priority: priority,
+        flag: isFlagged
+    };
+
+    tasks.push(task);
+    clearTaskModal();a
+    displayTasks();
+}
+
+// Function to clear the task modal after saving
+function clearTaskModal() {
+    taskDescriptionInput.value = '';
+    taskAssignedInput.value = '';
+    taskFlagInput.checked = false;
+    taskDateButtons.forEach(button => button.classList.remove('selected'));
+    taskReminderButtons.forEach(button => button.classList.remove('selected'));
+    taskPriorityButtons.forEach(button => button.classList.remove('selected'));
+    document.getElementById('taskModal').style.display = 'none';
+}
+
+
+    // Function to display tasks in the right-hand side
+  // Function to display tasks as a list with delete functionality
+// Function to display tasks as a list with delete functionality
+// Function to display tasks as a list with delete functionality
+function displayTasks() {
+    const taskDisplay = document.getElementById('taskDisplay');
+    const taskCount = document.getElementById('taskCount'); // Get the task count span
+    taskDisplay.innerHTML = ''; // Clear previous tasks
+
+    tasks.forEach((task, index) => {
+        const taskItem = document.createElement('div');
+        taskItem.classList.add('task-item');
+        
+        // Add checkbox, title, and delete button
+        taskItem.innerHTML = `
+            <div class="task-header">
+                <input type="checkbox" class="task-checkbox" data-index="${index}">
+                <h3 class="task-desc">${task.description}</h3>
+            </div>
+            <div class="task-meta">
+                <small>Assigned to: ${task.assignedTo}</small><br>
+                <small>Due: ${task.dueDate}</small><br>
+                <small>Reminder: ${task.reminder}</small><br>
+                <small>Priority: ${task.priority}</small><br>
+                <small>Flag: ${task.flag}</small>
+            </div>
+            <button class="delete-btn" data-index="${index}">Delete</button>
+        `;
+
+        // Append the task item to the display
+        taskDisplay.appendChild(taskItem);
+
+        // Add event listener to checkbox to toggle delete button
+        const checkbox = taskItem.querySelector('.task-checkbox');
+        checkbox.addEventListener('change', function () {
+            if (checkbox.checked) {
+                taskItem.classList.add('selected');
+            } else {
+                taskItem.classList.remove('selected');
+            }
+        });
+
+        // Add event listener to task title to toggle details
+        const taskTitle = taskItem.querySelector('.task-desc');
+        taskTitle.addEventListener('click', function () {
+            taskItem.classList.toggle('active'); // Toggle active class to show/hide details
+        });
+
+        // Add event listener to delete button
+        const deleteBtn = taskItem.querySelector('.delete-btn');
+        deleteBtn.addEventListener('click', function () {
+            deleteTask(index);
+        });
+    });
+
+    // Update the task count
+    taskCount.textContent = tasks.length; // Update the number of tasks
+}
+
+// Delete task function
+function deleteTask(index) {
+    tasks.splice(index, 1); // Remove the task from the array
+    displayTasks(); // Re-display tasks
+}
+
+
+    // When "Create Task" button is clicked
+    document.querySelector('.create-btn').addEventListener('click', function() {
+        saveTask();
+    });
+
+    // Show task content when "Tasks" button is clicked
+    document.getElementById('tasksBtn').addEventListener('click', function() {
+        hideHomeContent();
+        document.getElementById('mainContent').style.display = 'none';
+        document.getElementById('taskContent').style.display = 'block';
+        displayTasks(); // Display the tasks when the Tasks button is clicked
+    });
+
+    // Function to hide home content
+    function hideHomeContent() {
+        document.getElementById('homeContent').style.display = 'none';
+    }
+
+    // Show task modal when +Task button is clicked
+    document.getElementById('taskbtn').addEventListener('click', function() {
+        const taskModal = document.getElementById('taskModal');
+        taskModal.style.display = 'flex'; // Show the task modal when the button is clicked
+    });
+
+    // Hide task modal when Cancel button is clicked
+    document.querySelector('.cancel-btn').addEventListener('click', function() {
+        const taskModal = document.getElementById('taskModal');
+        taskModal.style.display = 'none'; // Hide the task modal when the Cancel button is clicked
+    });
+
+
+    
+
+
+
+
+
+
+
+
+   
+        // Function to hide the homeContent
+function hideHomeContent() {
+    document.getElementById('homeContent').style.display = 'none';
+}
+
+// Show main content (toolbar + note editor) when +Note button is clicked
+document.getElementById('noteBtn').addEventListener('click', function() {
+    const mainContent = document.getElementById('mainContent');
+    hideHomeContent(); // Hide home content
+    mainContent.style.display = 'block'; // Show the main content when +Note is clicked
+});
+
+// Show task modal when +Task button is clicked
+document.getElementById('taskbtn').addEventListener('click', function() {
     const taskModal = document.getElementById('taskModal');
+   
     taskModal.style.display = 'flex'; // Show the task modal when the button is clicked
 });
 
@@ -187,10 +457,53 @@ document.querySelector('.cancel-btn').addEventListener('click', function() {
     const taskModal = document.getElementById('taskModal');
     taskModal.style.display = 'none'; // Hide the task modal when the Cancel button is clicked
 });
-    </script>
 
+// Show event modal when +Event button is clicked
+document.getElementById('eventbtn').addEventListener('click', function () {
+    const eventModal = document.getElementById('eventModal');
+    hideHomeContent(); // Hide home content
+    eventModal.style.display = 'flex'; // Show event modal
+});
 
-    <script>
+// Hide event modal when Cancel button is clicked
+document.querySelector('.cancel-event-btn').addEventListener('click', function () {
+    const eventModal = document.getElementById('eventModal');
+    eventModal.style.display = 'none'; // Hide event modal
+});
+
+// Handle creating the event
+document.querySelector('.create-event-btn').addEventListener('click', function () {
+    const title = document.getElementById('eventTitle').value;
+    const start = document.getElementById('eventStart').value;
+    const end = document.getElementById('eventEnd').value;
+
+    if (title && start && end) {
+        console.log(Event Created: ${title}, Start: ${start}, End: ${end});
+        alert(Event "${title}" created successfully!);
+
+        document.getElementById('eventModal').style.display = 'none';
+    } else {
+        alert('Please fill all the fields.');
+    }
+});
+
+// Show home content when Home button is clicked
+document.getElementById('homeBtn').addEventListener('click', function() {
+    // Hide all other sections (e.g., taskModal, eventModal, etc.)
+    document.getElementById('taskModal').style.display = 'none';
+    document.getElementById('eventModal').style.display = 'none';
+    document.getElementById('mainContent').style.display = 'none';
+    
+    // Show the home content
+    document.getElementById('homeContent').style.display = 'block';
+});
+
+// Load Home page content by default on page refresh
+window.onload = function() {
+    // Show home content by default
+    document.getElementById('homeContent').style.display = 'block';
+};
+
         // Show main content (toolbar + note editor) when +Note button is clicked
         document.getElementById('noteBtn').addEventListener('click', function() {
             const mainContent = document.getElementById('mainContent');
@@ -254,8 +567,8 @@ document.querySelector('.create-event-btn').addEventListener('click', function (
 
     if (title && start && end) {
         // For now, log the event details (you can integrate with your calendar view)
-        console.log(`Event Created: ${title}, Start: ${start}, End: ${end}`);
-        alert(`Event "${title}" created successfully!`);
+        console.log(Event Created: ${title}, Start: ${start}, End: ${end});
+        alert(Event "${title}" created successfully!);
 
         // Hide the event modal
         document.getElementById('eventModal').style.display = 'none';
@@ -263,6 +576,23 @@ document.querySelector('.create-event-btn').addEventListener('click', function (
         alert('Please fill all the fields.');
     }
 });
+
+// Show home content when Home button is clicked
+document.getElementById('homeBtn').addEventListener('click', function() {
+    // Hide all other sections (e.g., taskModal, eventModal, etc.)
+    document.getElementById('taskModal').style.display = 'none';
+    document.getElementById('eventModal').style.display = 'none';
+    document.getElementById('mainContent').style.display = 'none';
+    document.getElementById('taskContent').style.display = 'none';
+    // Show the home content
+    document.getElementById('homeContent').style.display = 'block';
+});
+
+// Load Home page content by default on page refresh
+window.onload = function() {
+    // Show home content by default
+    document.getElementById('homeContent').style.display = 'block';
+};
 
 
     </script>

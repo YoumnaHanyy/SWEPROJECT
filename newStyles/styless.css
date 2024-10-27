@@ -1,6 +1,5 @@
-/* General Styles */
 body {
-    background-color: #242424;
+    background-color: #1a1a1a;
     /* Gradient from top-left to bottom-right */
     font-family: Arial, sans-serif;
     color: white;
@@ -12,15 +11,15 @@ body {
 .sidebar-menu {
     display: flex;
     position: fixed; /* Ensures the sidebar stays fixed on the left side */
-    top: 6px;
+    top: 5px;
     left: 10px;
     flex-direction: column;
     width: 220px; /* Sidebar width */
-    background-color: #262626;
+    background-color: #1a1a1a;
     padding: 10px;
     border: 1px solid rgb(72, 72, 72); /* Thin white border (2px) */
     border-radius: 10px;
-    overflow-y: auto; /* Allows vertical scrolling for overflow content */ /* Allows vertical scrolling for overflow content */
+    overflow-y: auto; /* Allows vertical scrolling for overflow content / / Allows vertical scrolling for overflow content */
 }
 
 /* Profile Section */
@@ -63,7 +62,10 @@ body {
     margin-bottom: 20px;
     width: 94%;
 }
-
+.search-bar input:focus {
+    border: 1px solid #fff;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
 .search-bar input {
     width: 100%;
     padding: 8px;
@@ -149,7 +151,7 @@ body {
 
 /* Custom Scrollbar */
 .menu-items::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
 }
 
 .menu-items::-webkit-scrollbar-thumb {
@@ -321,7 +323,7 @@ border-radius: 5px;
     margin-top: 50px;
     width: 100%;
     border-bottom: 1px solid #888; /* Light underline when inactive */
-    outline: none; /* Remove default input outline */ /* Light underline for input */
+    outline: none; /* Remove default input outline / / Light underline for input */
 }
 .main-content .title-input:focus {
     border-bottom: 1px solid transparent; /* Remove the border when focused */
@@ -334,7 +336,7 @@ border-radius: 5px;
     font-size: 20px;
     width: 100%;
     /* Light underline when inactive */
-    outline: none; /* Remove default input outline */ /* Light underline for input */
+    outline: none; /* Remove default input outline / / Light underline for input */
 }
 .main-content .subtitle:focus {
     border-bottom: 1px solid transparent; /* Remove the border when focused */
@@ -587,8 +589,7 @@ border-radius: 5px;
 .create-btn {
     background-color: #7c3aed;
     color: white;
-    cursor: not-allowed; /* Disabled look */
-    opacity: 0.5;
+  
 }
 
 .task-priority-options button {
@@ -693,26 +694,254 @@ input:checked + .slider:before {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 
+    box-shadow:
 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 999; 
+    z-index: 999;
 
   }
+  /* Home Section */
+.home-content {
+    margin-left: 300px;
+    padding: 20px;
+    color: white;
+    background-color: #1a1a1a;
+}
 
-  /* Additional styles for a more professional look */
-  .event-modal-content {
-    max-width: 400px;
-  }
 
-  .event-fields label {
-    font-size: 14px;
-  }
+.home-content h2{
+    font-size: 20px;
+}
+.notes-header h3 {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
 
-  .event-fields input {
-    font-size: 14px;
-  }
+.notes-section {
+    display: flex;
+    justify-content: flex-start; /* Aligns the notes cards to the left */
+    gap: 20px; /* Adds space between the note cards */
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* Ensures note cards wrap on smaller screens */
+}
 
-  .event-actions button {
-    font-size: 14px;
+.note-card {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
+    width: 220px; /* Set a fixed width for the note cards */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Push the date to the bottom */
+}
+
+.note-card small {
+    color: #888;
+    margin-top: 10px;
+}
+
+.recently-captured {
+    margin-top: 40px;
+}
+
+.recently-captured h3 {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.capture-options {
+    display: flex;
+    gap: 10px;
+}
+
+.capture-options button {
+    background-color: #444;
+    color: white;
+    border: none;
     padding: 10px 20px;
-  }
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.capture-options button:hover {
+    background-color: #555; }
+
+
+    .notes-list {
+       margin-top: -100vh;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-left: 7vh;
+        padding: 10px;
+     
+        overflow-y: auto; /* Add this to allow scrolling if necessary */
+        max-height: 90vh; /* You can adjust the height */
+    }
+    
+    .note-item {
+        margin-left: 200px;
+        background-color: #333;
+        padding: 10px;
+        border-radius: 5px;
+        height: 30vh;
+        color: white;
+        width: 18%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .note-item p {
+        margin: 0;
+        font-weight: bold;
+    }
+    
+    .note-item small {
+        color: #888;
+    }
+    
+
+   /* Task Display Section */
+/* Task Display Container Styling */
+.main-content1 h2{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+margin-left: 39vh;
+}
+.task-display {
+    padding: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Task Item Styling */
+.task-item {
+    display: flex;
+   margin-left: -40vh;
+    padding: 1rem;
+    border-bottom: #333;
+    border-top: #333;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #222222;
+    flex-direction: column;
+    position: relative;
+    width: 173vh; /* Make the task item take full width */
+}
+
+/* Task Title as Header */
+.task-item h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer; /* Change cursor to pointer to indicate clickability */
+}
+
+/* Checkbox and Delete Button Styling */
+.task-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Meta information hidden by default */
+.task-meta {
+    font-size: 0.9rem;
+    color: #ffffff;
+    padding-top: 0.5rem;
+    display: none; /* Hide details by default */
+}
+
+/* Checkbox Styling */
+.task-checkbox {
+    margin-right: 10px;
+}
+
+/* Delete Button Styling */
+.delete-btn {
+    display: none;
+    color: red;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    width: 100%;
+}
+
+/* Show delete button when the checkbox is selected */
+.task-item.selected .delete-btn {
+    display: block;
+}
+
+/* Show meta details when the task item is clicked */
+.task-item.active .task-meta {
+    display: block; /* Show details when the task is active */
+}
+.main-content1 h4{
+    margin-left: 39vh;
+}
+
+/* Style for the horizontal tabs */
+.task-tabs {
+    display: flex;
+    border-bottom: 1px solid #444;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    margin-left: 39vh;
+}
+
+.tab {
+    margin-right: 20px;
+    padding: 10px;
+    cursor: pointer;
+    color: #fff;
+    border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+    border-bottom: 2px solid #fff; /* Active tab underline */
+}
+
+.tab:hover {
+    color: #888;
+}
+
+/* Task table header styling */
+.task-table-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+    margin-bottom: 10px;
+    margin-left: 39vh;
+}
+
+.column-header {
+    color: #fff;
+    font-weight: bold;
+    flex-basis: 25%; /* Distribute equally across the container */
+    text-align: left;
+}
+
+/* Task display area */
+.task-display {
+    padding: 10px;
+    background-color: #1a1a1a;
+    border: 1px solid #444;
+    border-radius: 5px;
+}
+
+/* Tasks container inside the task display area */
+.task-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    color: white;
+}
