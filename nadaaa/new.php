@@ -47,11 +47,12 @@
             <button class="btn"><i class="fas fa-share-alt"></i> Shared with Me</button>
             <button class="btn"><i class="fas fa-trash"></i> Trash</button>
         </div>
-        <div class="notebook-modal" id="notebookModal">
+      <!-- Notebook Modal Structure -->
+<div class="notebook-modal" id="notebookModal">
     <div class="notebook-modal-content">
         <h2>Create New Notebook</h2>
         <p class="modal-intro">Notebooks are useful for grouping notes around a common topic. They can be private or shared.</p>
-        <input type="text" placeholder="Notebook Name" />
+        <input type="text" id="notebookName" placeholder="Notebook Name" />
         <p id="error-message" class="error-message"></p>
         <div class="notebook-actions">
             <button class="cancel-notebook-btn">Cancel</button>
@@ -62,8 +63,6 @@
 
 <!-- Container for displaying created notebooks -->
 <div id="notebookContainer" class="notebook-container"></div>
-
-
 
         <div class="download-upgrade">
             <button class="download-btn">Download the app</button>
