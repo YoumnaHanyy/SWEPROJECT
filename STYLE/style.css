@@ -807,6 +807,8 @@ input:checked + .slider:before {
 .main-content1 h2{
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 margin-left: 39vh;
+color: rgba(255, 255, 255, 0.842);
+
 }
 
 /* Task Item styling */
@@ -872,6 +874,7 @@ margin-left: 39vh;
     display: block; /* Show details when the task is active */
 }
 .main-content1 h4{
+    color: rgba(255, 255, 255, 0.423);
     margin-left: 39vh;
 }
 
@@ -888,7 +891,8 @@ margin-left: 39vh;
     margin-right: 20px;
     padding: 10px;
     cursor: pointer;
-    color: #fff;
+
+   color: rgba(255, 255, 255, 0.842);
     border-bottom: 2px solid transparent;
 }
 
@@ -1022,3 +1026,5 @@ margin-left: 39vh;
         margin-left: 20px;
         color: #555;
     }
+
+    

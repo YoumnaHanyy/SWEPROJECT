@@ -48,6 +48,7 @@ toggleSelection(taskPriorityButtons);
 function saveTask() {
 const description = taskDescriptionInput.value;
 const assignedTo = taskAssignedInput.value;
+const selectedCategory = document.getElementById('taskCategory').value; // Get the selected category
 let dueDate = ''; 
 let reminder = ''; 
 let priority = ''; 
@@ -62,6 +63,7 @@ const task = {
 description: description || 'No Description', 
 assignedTo: assignedTo || 'Unassigned',
 dueDate: dueDate,
+category: selectedCategory,  // Store the selected category
 reminder: reminder,
 priority: priority,
 flag: isFlagged
@@ -112,6 +114,7 @@ taskItem.innerHTML = `
     <div class="task-meta">${task.dueDate || '-'}</div>
     <div class="task-meta">${task.reminder || '-'}</div>
     <div class="task-meta">${task.assignedTo || '-'}</div>
+     <div class="task-meta">Category: ${task.category || 'No Category'}</div> <!-- Display the category -->
    
 `;
 
@@ -379,3 +382,61 @@ if (matchCategory && matchDeadline && matchPriority && matchSearch) {
 });
 }
 
+document.getElementById('customDateBtn').addEventListener('click', function () {
+    // Show the hidden input field for the date picker
+    document.getElementById('customDateInput').style.display = 'block';
+
+    // Initialize the Flatpickr date picker on the input field
+    flatpickr("#customDateInput", {
+        enableTime: true, // Enable time selection if needed
+        dateFormat: "Y-m-d H:i", // Date format (Y: Year, m: Month, d: Day, H:i: Time)
+        onClose: function(selectedDates, dateStr, instance) {
+            // When the user selects a date, hide the input and fill the selected date in the button
+            document.getElementById('customDateInput').style.display = 'none';
+            document.getElementById('customDateBtn').textContent = dateStr; // Set the date in the button text
+        }
+    });
+
+    // Automatically open the date picker when the button is clicked
+    document.getElementById('customDateInput')._flatpickr.open();
+});
+document.getElementById('customDateBtn').addEventListener('click', function() {
+    document.getElementById('customDateInput').style.display = 'block'; // Show the input field
+    document.getElementById('customDateInput').focus(); // Automatically focus the input
+});
+
+document.getElementById('customDateInput').addEventListener('change', function() {
+    // When the user selects a date, hide the input and fill the selected date in the button
+    document.getElementById('customDateInput').style.display = 'none';
+    document.getElementById('customDateBtn').textContent = this.value; // Set the selected date in the button text
+});
+
+document.getElementById('customReminderBtn').addEventListener('click', function () {
+    // Show the hidden input field for the date picker
+    document.getElementById('customReminderInput').style.display = 'block';
+
+    // Initialize the Flatpickr date picker on the input field
+    flatpickr("#customReminderInput", {
+        enableTime: true, // Enable time selection
+        dateFormat: "Y-m-d H:i", // Date and time format
+        defaultDate: new Date(), // Default to current date
+        onClose: function(selectedDates, dateStr, instance) {
+            // When the user selects a date, hide the input and fill the selected date in the button
+            document.getElementById('customReminderInput').style.display = 'none';
+            document.getElementById('customReminderBtn').textContent = dateStr; // Set the date in the button text
+        }
+    });
+
+    // Automatically open the date picker when the button is clicked
+    document.getElementById('customReminderInput')._flatpickr.open();
+});
+flatpickr("#customReminderInput", {
+    enableTime: true,
+    noCalendar: false,  // Ensure the calendar is shown
+    dateFormat: "Y-m-d H:i K",  // 'K' adds the AM/PM option
+    time_24hr: false,  // Switch to 12-hour format with AM/PM
+    onClose: function(selectedDates, dateStr, instance) {
+        document.getElementById('customReminderInput').style.display = 'none';
+        document.getElementById('customReminderBtn').textContent = dateStr;
+    }
+});

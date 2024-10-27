@@ -7,6 +7,7 @@
 
     <!-- Linking to Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
     <!-- Linking to your CSS file -->
     <link rel="stylesheet" href="../STYLE/style.css">
@@ -119,7 +120,8 @@
                 <div class="task-date-options">
                     <button>Today</button>
                     <button>Tomorrow</button>
-                    <button>Custom</button>
+                    <button id="customDateBtn">Custom</button>
+                    <input type="datetime-local" id="customDateInput" style="display:none;" />
                     <button>Repeat</button>
                 </div>
 
@@ -127,7 +129,8 @@
                 <div class="task-reminder-options">
                     <button>In 1 hour</button>
                     <button>In 4 hours</button>
-                    <button>Custom</button>
+                    <button id="customReminderBtn">Custom</button>
+                    <input type="text" id="customReminderInput" style="display:none;" />
                 </div>
 
                 <label><i class="fa fa-user"></i> Assigned to</label>
@@ -146,6 +149,12 @@
                     <span class="slider"></span>
                 </label>
 
+                <label><i class="fa fa-folder"></i> Category</label>
+    <select id="taskCategory" class="task-category-options">
+        <option value="work">Work</option>
+        <option value="school">School</option>
+        <option value="company">Company</option>
+    </select>
                 <div class="task-actions">
                     <button class="cancel-btn">Cancel</button>
                     <button class="create-btn">Create task</button>
@@ -273,7 +282,7 @@
 
 
 <script src="../java/newjs.js"></script>
-    
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 </body>
 </html>
