@@ -24,11 +24,11 @@
                 <span>&#128276;</span>
             </div>
         </div>
-        
+
         <div class="search-bar">
             <input type="text" placeholder="Search">
         </div>
-        
+
         <div class="action-buttons">
             <button id="noteBtn" class="btn">+ Note</button>
             <div class="sub-buttons">
@@ -36,31 +36,28 @@
                 <button class="btn" id="eventbtn">+ Event</button>
             </div>
         </div>
-        
+
         <div class="menu-items">
-        <button class="btn" id="homeBtn"><i class="fa-solid fa-house"></i> Home</button>
-
-        <button class="btn" id="tasksBtn"><i class="fas fa-tasks"></i> Tasks</button>
-
-            
+            <button class="btn" id="homeBtn"><i class="fa-solid fa-house"></i> Home</button>
+            <button class="btn" id="tasksBtn"><i class="fas fa-tasks"></i> Tasks</button>
             <button class="btn"><i class="fas fa-file"></i> Files</button>
-            <button class="btn"><i class="fas fa-calendar"></i> Calendar</button>
+            <button class="btn" id="calendarBtn"><i class="fas fa-calendar"></i> Calendar</button>
             <button class="btn"><i class="fas fa-book"></i> Notebooks</button>
             <button class="btn"><i class="fas fa-tag"></i> Tags</button>
             <button class="btn"><i class="fas fa-share-alt"></i> Shared with Me</button>
             <button class="btn"><i class="fas fa-trash"></i> Trash</button>
         </div>
-        
+
         <div class="download-upgrade">
             <button class="download-btn">Download the app</button>
             <button class="upgrade-btn">Upgrade</button>
         </div>
-        
+
         <div class="help-section">
             <button class="help-btn">Need a little help?</button>
         </div>
     </div>
-    
+
     <div class="main-content" id="mainContent" style="display: none;">
         <!-- Toolbar at the top of the main content -->
         <div class="toolbar">
@@ -104,9 +101,9 @@
         </div>
     </div>
 
-   
-</div>
-
+    <div id="calendarView" style="display: none;">
+        <img src="/mnt/data/image.png" alt="Calendar view">
+    </div>
 
     <div class="task-modal" id="taskModal">
         <div class="task-modal-content">
@@ -153,51 +150,49 @@
             </div>
         </div>
     </div>
+
     <div class="event-modal" id="eventModal" style="display: none;">
-    <div class="event-modal-content">
-        <h2><i class="fa fa-calendar-plus"></i> Create Event</h2>
-        <div class="event-fields">
-            <label><i class="fa fa-pen"></i> Event Title</label>
-            <input type="text" placeholder="Enter event title" id="eventTitle">
+        <div class="event-modal-content">
+            <h2><i class="fa fa-calendar-plus"></i> Create Event</h2>
+            <div class="event-fields">
+                <label><i class="fa fa-pen"></i> Event Title</label>
+                <input type="text" placeholder="Enter event title" id="eventTitle">
 
-            <label><i class="fa fa-calendar"></i> Start Date & Time</label>
-            <input type="datetime-local" id="eventStart">
+                <label><i class="fa fa-calendar"></i> Start Date & Time</label>
+                <input type="datetime-local" id="eventStart">
 
-            <label><i class="fa fa-calendar"></i> End Date & Time</label>
-            <input type="datetime-local" id="eventEnd">
+                <label><i class="fa fa-calendar"></i> End Date & Time</label>
+                <input type="datetime-local" id="eventEnd">
 
-            <div class="event-actions">
-                <button class="cancel-event-btn">Cancel</button>
-                <button class="create-event-btn">Create Event</button>
+                <div class="event-actions">
+                    <button class="cancel-event-btn">Cancel</button>
+                    <button class="create-event-btn">Create Event</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="home-content" id="homeContent">
-    <h2>Ready to start taking notes?</h2>
-    <div class="notes-header">
-        <h3>yomna2207085c5a50bc41c3d015e's Home</h3>
-    </div>
-    <div class="notes-section">
-        <div class="note-card">
-            <p>Untitled</p>
-            <small>Oct 15</small>
+    <div class="home-content" id="homeContent">
+        <h2>Ready to start taking notes?</h2>
+        <div class="notes-header">
+            <h3>yomna2207085c5a50bc41c3d015e's Home</h3>
         </div>
-        <div class="note-card">
-            <p>Meeting note</p>
-            <p>Date & Time Goal<br>Attendees Me<br>Agenda Notes<br>Action Items</p>
-            <small>Oct 14</small>
+        <div class="notes-section">
+            <div class="note-card">
+                <p>Untitled</p>
+                <small>Oct 15</small>
+            </div>
+            <div class="note-card">
+                <p>Meeting note</p>
+                <p>Date & Time Goal<br>Attendees Me<br>Agenda Notes<br>Action Items</p>
+                <small>Oct 14</small>
+            </div>
+            <div class="note-card">
+                <p>Untitled</p>
+                <small>Oct 14</small>
+            </div>
         </div>
-        <div class="note-card">
-            <p>Untitled</p>
-            <small>Oct 14</small>
-        </div>
-        <div class="note-card">
-            <p>Untitled</p>
-            <small>Oct 14</small>
-        </div>
-    </div>
+        
     <div class="recently-captured">
         <h3>Recently Captured</h3>
         <div class="capture-options">
@@ -269,8 +264,6 @@
 <div id="mainContent1">
     <div id="taskListContainer"></div>
 </div>
-
-
 
 <script src="../java/newjs.js"></script>
     
