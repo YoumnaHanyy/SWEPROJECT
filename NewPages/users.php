@@ -153,7 +153,7 @@
     <select id="taskCategory" class="task-category-options">
         <option value="work">Work</option>
         <option value="school">School</option>
-        <option value="company">Company</option>
+        <option value="company">Personal</option>
     </select>
                 <div class="task-actions">
                     <button class="cancel-btn">Cancel</button>

@@ -381,6 +381,24 @@ if (matchCategory && matchDeadline && matchPriority && matchSearch) {
 }
 });
 }
+function filterTasksByCategory(category) {
+    const taskItems = document.querySelectorAll('.task-item');
+
+    taskItems.forEach((taskItem) => {
+        const taskCategory = taskItem.getAttribute('data-category');
+        if (category === 'all' || taskCategory === category) {
+            taskItem.style.display = 'flex';  // Show matching tasks
+        } else {
+            taskItem.style.display = 'none';  // Hide non-matching tasks
+        }
+    });
+}
+
+// Example usage (when selecting a category from dropdown)
+document.getElementById('filterCategory').addEventListener('change', function() {
+    const selectedCategory = this.value;
+    filterTasksByCategory(selectedCategory);
+});
 
 document.getElementById('customDateBtn').addEventListener('click', function () {
     // Show the hidden input field for the date picker
