@@ -37,21 +37,26 @@ document.querySelector('.create-btn').addEventListener('click', function () {
 });
 
 // Function to toggle selection for buttons
+// Function to toggle selection and highlight the chosen button
 function toggleSelection(buttons) {
     buttons.forEach(button => {
         button.addEventListener('click', function () {
-            // Remove selected class from all buttons
+            // Remove 'selected' class from all buttons in the group
             buttons.forEach(btn => btn.classList.remove('selected'));
-            // Add selected class to the clicked button
+            
+            // Add 'selected' class to the clicked button
             this.classList.add('selected');
         });
     });
 }
 
-// Apply toggle selection function to each button group
+// Apply the toggle selection function to each group of buttons
+
+
 toggleSelection(taskDateButtons);
 toggleSelection(taskReminderButtons);
 toggleSelection(taskPriorityButtons);
+
 
 // Function to save the task
 function saveTask() {
@@ -425,37 +430,32 @@ filterTasks();
 
 
 
-let sortAscending = true; // To toggle between ascending and descending order
-
 // Event listener for sorting dropdown
 document.getElementById('sortBtn').addEventListener('click', function() {
     const sortBy = document.getElementById('sortBy').value; // Get the selected sort criterion
-    sortAscending = !sortAscending; // Toggle sorting order (ascending/descending)
 
     if (sortBy === 'priority') {
-        sortTasksByPriority(sortAscending);
+        sortTasksByPriority(); // Sort by priority (High to Low)
     } else if (sortBy === 'deadline') {
-        sortTasksByDeadline(sortAscending);
+        sortTasksByDeadline(); // Sort by deadline (Latest to Earliest)
     }
 });
 
-// Function to sort tasks by priority
-function sortTasksByPriority(ascending) {
+// Function to sort tasks by priority (High to Low)
+function sortTasksByPriority() {
     tasks.sort((a, b) => {
-        const priorityOrder = { "Low": 1, "Medium": 2, "High": 3 };
-        let comparison = priorityOrder[a.priority] - priorityOrder[b.priority];
-        return ascending ? comparison : -comparison;
+        const priorityOrder = { "High": 3, "Medium": 2, "Low": 1 };
+        return priorityOrder[b.priority] - priorityOrder[a.priority]; // Always sort High to Low
     });
     displayTasks(); // Re-display tasks after sorting
 }
 
-// Function to sort tasks by deadline
-function sortTasksByDeadline(ascending) {
+// Function to sort tasks by deadline (Latest to Earliest)
+function sortTasksByDeadline() {
     tasks.sort((a, b) => {
         const dateA = new Date(a.dueDate);
         const dateB = new Date(b.dueDate);
-        let comparison = dateA - dateB;
-        return ascending ? comparison : -comparison;
+        return dateB - dateA; // Always sort Latest to Earliest
     });
     displayTasks(); // Re-display tasks after sorting
 }

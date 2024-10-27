@@ -114,8 +114,8 @@
         <div class="task-modal-content">
             <h2><i class="fa fa-check-circle"></i> Enter task</h2>
             <div class="task-fields">
-                <label><i class="fa fa-pen"></i> Description</label>
-                <textarea placeholder="What is this task about?"></textarea>
+                <label ><i class="fa fa-pen"></i> Title</label>
+                <textarea class="des" placeholder="What is this task about?"></textarea>
 
                 <label><i class="fa fa-calendar"></i> Due date</label>
                 <div class="task-date-options">
@@ -247,7 +247,7 @@
         </button>
 
         <div class="task-filters">
-    <label for="sortBy">Sort by:</label>
+    <label for="sortBy" class="srt">Sort by:</label>
     <select id="sortBy" class="filter-select">
         <option value="priority">Priority</option>
         <option value="deadline">Deadline</option>

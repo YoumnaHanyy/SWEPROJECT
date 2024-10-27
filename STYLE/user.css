@@ -488,120 +488,146 @@ border-radius: 5px;
 
 /* Modal background */
 .task-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    border: 1px solid rgb(93, 93, 93);
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    display: none; /* Flexbox layout for centering */
-    justify-content: center; /* Horizontally center the modal */
-    align-items: center; /* Vertically center the modal */
-    z-index: 1000;
+    width: 100vw;
+    height:100vh;
+    background: rgba(0, 0, 0, 0.5);
 }
 
-/* Modal content box */
 .task-modal-content {
-    border: 1px solid rgb(93, 93, 93);
-    background-color: #141414;
-    padding: 20px;
-    border-radius: 10px;
-    width: 600px;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-height: 90vh; /* Ensure it doesn't overflow the screen height */
-    overflow-y: auto; /* Add scroll if content overflows */
+    background: #1a1a1a;
+    padding: 15px;
+    border-radius: 8px;
+    width: 550px; /* Reduced width */
+    height: 600px; /* Reduced height */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
 }
 
-.task-modal-content h2 {
-    margin-top: 0;
-    color: #fff;
-    font-size: 18px;
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }
 
+/* Task fields container */
 .task-fields {
     display: flex;
     flex-direction: column;
+    gap: 10px; /* Reduced gap */
 }
-
+.task-modal, .event-modal {
+    display: none;
+}
+/* Labels */
 .task-fields label {
+    font-size: 0.85rem; /* Reduced font size */
+    color: #ffffff;
+    font-weight: bold;
     display: flex;
     align-items: center;
-    margin-top: 15px;
-    font-size: 14px;
-    color: #aaa;
+    gap: 8px; /* Reduced gap */
 }
 
-.task-fields textarea {
-    background-color: #444;
-    color: white;
-    border: none;
+/* Textarea for task description */
+.des {
+    padding: 5px;
+    font-size: 0.85rem; /* Reduced font size */
+    border: 1px solid #272727;
     border-radius: 5px;
-    padding: 10px;
-    margin-top: 5px;
-    resize: vertical;
-    width: 95%;
+    background-color: #333;
+    width: 80%;
+    resize: none;
+    min-height: 60px; /* Adjusted height */
 }
 
-.task-date-options, .task-reminder-options, .task-priority-options {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
+.des:focus {
+    outline: none;
+    border-color: #28a745;
 }
 
-.task-date-options button, .task-reminder-options button, .task-priority-options button {
-    padding: 5px 10px;
-    background-color: #444;
+/* Due date and reminder buttons */
+.task-date-options button, .task-reminder-options button {
+    padding: 6px 10px; /* Reduced padding */
     border: none;
-    border-radius: 5px;
+    background: #28a745;
     color: white;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 0.8rem; /* Reduced font size */
+    transition: background 0.3s ease;
 }
 
-.task-fields input[type="text"] {
-    background-color: #444;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 5px;
+.task-date-options button:hover, .task-reminder-options button:hover {
+    background: #218838;
+}
+
+/* Custom Date input fields */
+#customDateInput, #customReminderInput {
+    margin-top: 8px;
+    padding: 6px; /* Reduced padding */
+    font-size: 0.85rem; /* Reduced font size */
     width: 100%;
-}
-
-.task-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.cancel-btn, .create-btn {
-    padding: 10px 20px;
-    border: none;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    cursor: pointer;
 }
 
-.cancel-btn {
-    background-color: #444;
+/* Input field for 'Assigned to' */
+input[placeholder="Assign"] {
+    padding: 8px; /* Reduced padding */
+    width: 80%;
+    border-radius: 5px;
+    border: 1px solid #2b2b2b;
+    background-color: #333;
+    font-size: 0.85rem; /* Reduced font size */
 }
 
-.create-btn {
-    background-color: #7c3aed;
-    color: white;
-  
+input[placeholder="Assign"]:focus {
+    outline: none;
+    border-color: #28a745;
+}
+
+/* Priority buttons */
+.task-priority-options {
+    display: flex;
+    gap: 8px; /* Reduced gap */
 }
 
 .task-priority-options button {
-    padding: 5px 15px;
+    padding: 6px 10px; /* Reduced padding */
+    border: none;
+    border-radius: 5px;
+    font-size: 0.8rem; /* Reduced font size */
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-/* Switch for Flag */
+.task-priority-options button:nth-child(1) {
+    background-color: #17a2b8;
+}
+
+.task-priority-options button:nth-child(2) {
+    background-color: #ffc107;
+}
+
+.task-priority-options button:nth-child(3) {
+    background-color: #dc3545;
+}
+
+.task-priority-options button:hover {
+    opacity: 0.9;
+}
+
+/* Toggle switch for Flag */
 .switch {
     position: relative;
     display: inline-block;
-    width: 34px;
-    height: 20px;
+    width: 40px; /* Reduced size */
+    height: 20px; /* Reduced size */
 }
 
 .switch input {
@@ -619,28 +645,82 @@ border-radius: 5px;
     bottom: 0;
     background-color: #ccc;
     transition: 0.4s;
-    border-radius: 34px;
+    border-radius: 24px;
 }
 
 .slider:before {
     position: absolute;
     content: "";
-    height: 14px;
-    width: 14px;
-    left: 3px;
-    bottom: 3px;
+    height: 16px; /* Reduced size */
+    width: 16px; /* Reduced size */
+    left: 4px;
+    bottom: 2px;
     background-color: white;
     transition: 0.4s;
     border-radius: 50%;
 }
-
+.selected {
+    background-color: #ffffff04 !important; /* Highlight background */
+    color: white !important; /* Change text color */
+    box-shadow: 0 0 5px 2px rgba(33,136,56,0.5); /* Add shadow */
+}
 input:checked + .slider {
-    background-color: #7c3aed;
+    background-color: #28a745;
 }
 
 input:checked + .slider:before {
-    transform: translateX(14px);
+    transform: translateX(20px); /* Adjusted for smaller switch */
 }
+
+/* Select dropdown for category */
+.task-category-options {
+    padding: 8px; /* Reduced padding */
+    font-size: 0.85rem; /* Reduced font size */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #333;
+    width: 80%;
+    cursor: pointer;
+}
+
+.task-category-options:focus {
+    outline: none;
+    border-color: #28a745;
+}
+
+/* Action buttons */
+.task-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px; /* Reduced gap */
+    margin-top: 15px; /* Reduced margin */
+}
+
+.task-actions button {
+    padding: 8px; /* Reduced padding */
+    border: none;
+    font-size: 0.85rem; /* Reduced font size */
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cancel-btn {
+    background-color: #dc3545;
+}
+
+.create-btn {
+    background-color: #28a745;
+}
+
+.delete-btn {
+    background-color: #ff6347;
+}
+
+.task-actions button:hover {
+    opacity: 0.9;
+}
+
 .event-modal-content h2 {
     margin-bottom: 15px;
     display: flex;
@@ -956,7 +1036,8 @@ color: rgba(255, 255, 255, 0.842);
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    margin-left: 100vh;
+    margin-left: 130vh;
+    margin-top: -10vh;
     display: flex;
     align-items: center;
 }
@@ -993,6 +1074,7 @@ color: rgba(255, 255, 255, 0.842);
     border-radius: 5px;
     margin: 10px;
     width: 160px;
+    margin-top: -10vh;
 }
 
 /* Task table header styling */
@@ -1154,6 +1236,7 @@ border: none
 
   /* Sort button styling */
   .sort-select {
+   
     padding: 5px;
     margin-left: 10px;
     border-radius: 4px;
@@ -1161,6 +1244,7 @@ border: none
 }
 
 .sort-btn {
+   
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -1169,7 +1253,9 @@ border: none
     display: inline-flex;
     align-items: center;
 }
-
+.task-filters{
+    margin-top: -10vh;
+}
 .sort-btn i {
     font-size: 24px; /* Adjust icon size */
     transition: transform 0.3s ease;
@@ -1179,27 +1265,3 @@ border: none
 .sort-btn.active i {
     transform: rotate(180deg);
 }
-.filter-select {
-    padding: 8px;
-    font-size: 14px;
-    margin-right: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-}
-
-.sort-btn {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-}
-
-.sort-btn i {
-    font-size: 16px;
-    transition: transform 0.3s ease;
-}
-
-.sort-btn.active i {
-    transform: rotate(180deg);
-}
-
