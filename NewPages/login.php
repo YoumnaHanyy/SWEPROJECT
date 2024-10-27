@@ -208,7 +208,7 @@ $conn->close();
         }
 
         .overlay {
-            background: #02897A;
+            background: #28a745;
             color: #fff;
             position: absolute;
             left: -100%;
@@ -276,7 +276,7 @@ $conn->close();
         form button {
             padding: 10px 30px;
             border: none;
-            background-color: #02897A;
+            background-color: #28a745;
             color: white;
             cursor: pointer;
             margin-top: 20px;

@@ -8,6 +8,7 @@
     <!-- Linking to Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" rel="stylesheet">
 
     <!-- Linking to your CSS file -->
     <link rel="stylesheet" href="../STYLE/user.css">
@@ -188,35 +189,28 @@
     <div class="notes-header">
         <h3>yomna2207085c5a50bc41c3d015e's Home</h3>
     </div>
-    <div class="notes-section">
-        <div class="note-card">
-            <p>Untitled</p>
-            <small>Oct 15</small>
-        </div>
-        <div class="note-card">
-            <p>Meeting note</p>
-            <p>Date & Time Goal<br>Attendees Me<br>Agenda Notes<br>Action Items</p>
-            <small>Oct 14</small>
-        </div>
-        <div class="note-card">
-            <p>Untitled</p>
-            <small>Oct 14</small>
-        </div>
-        <div class="note-card">
-            <p>Untitled</p>
-            <small>Oct 14</small>
-        </div>
+    <section class="container">
+  <div class="heading">
+    <img class="heading__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/laptop.svg">
+    <h1 class="heading__title">To-Do List</h1>
+  </div>
+  <form class="form">
+    <div>
+      <label class="form__label" for="todo">~ Today I need to ~</label>
+      <input class="form__input"
+           type="text" 
+           id="todo" 
+           name="to-do"
+           size="30"
+           required>
+      <button class="button"><span>Submit</span></button>
     </div>
-    <div class="recently-captured">
-        <h3>Recently Captured</h3>
-        <div class="capture-options">
-            <button>Web Clips</button>
-            <button>Images</button>
-            <button>Documents</button>
-            <button>Audio</button>
-            <button>Emails</button>
-        </div>
-    </div>
+  </form>
+  <div>
+    <ul class="toDoList">
+    </ul>
+  </div>
+</section>
 </div>
 
 <div class="main-content1" id="taskContent" style="display: none;">

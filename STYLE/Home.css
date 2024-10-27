@@ -10,7 +10,9 @@ body {
     background-color: #f9f6f2;
     color: #333;
 }
-
+.ll{
+    text-decoration: none;
+}
 .container {
     width: 100%;
     text-align: center;

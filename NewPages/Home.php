@@ -12,51 +12,55 @@
 </head>
 <body>
 <div class="container">
-<header class="header">
-        <div class="logo">
-            <img src="../Images/logoo.jpg" alt="DoneDeal Logo">
-            <span>DoneDeal</span>
-        </div>
-        <nav>
-        <a href="whydonedeal.php">Why DoneDeal</a>
-            <!-- Adding the dropdown for Explore -->
-            <div class="dropdown">
-                <a href="#" class="dropdown-toggle">Explore &#9662;</a> <!-- Explore with arrow down -->
-                <div class="dropdown-menu">
-                    <div class="dropdown-column">
-                        <span>SOLUTIONS</span>
-                        <a href="#">Note Taking</a>
-                        <a href="#">Self organizing</a>
-                        <a href="#">Productivity</a>
-                        <a href="#">Teams</a>
-                    </div>
-                    <div class="dropdown-column">
-                        <span>FEATURES</span>
-                        <a href="#">AI features</a>
-                        <a href="#">Collaboration</a>
-                        <a href="#">Web Clipper</a>
-                        <a href="#">Advanced search</a>
-                        <a href="#">Document scanning</a>
-                        <a href="#">Personalization</a>
-                        <a href="#">Tasks</a>
-                        <a href="#">Calendar</a>
+    <header class="header">
+            <div class="logo">
+                <img src="../Images/logoo.jpg" alt="DoneDeal Logo">
+                <a href="Home.php" >
+                <span class="ll">DoneDeal</span>
+    </a>
+            </div>
+            <nav>
+            <a href="whydonedeal.php">Why DoneDeal</a>
+                <!-- Adding the dropdown for Explore -->
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Explore &#9662;</a> <!-- Explore with arrow down -->
+                    <div class="dropdown-menu">
+                        <div class="dropdown-column">
+                            <span>SOLUTIONS</span>
+                            <a href="#">Note Taking</a>
+                            <a href="#">Self organizing</a>
+                            <a href="#">Productivity</a>
+                            <a href="#">Teams</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <span>FEATURES</span>
+                            <a href="#">AI features</a>
+                            <a href="#">Collaboration</a>
+                            <a href="#">Web Clipper</a>
+                            <a href="#">Advanced search</a>
+                            <a href="#">Document scanning</a>
+                            <a href="#">Personalization</a>
+                            <a href="#">Tasks</a>
+                            <a href="#">Calendar</a>
+                        </div>
                     </div>
                 </div>
+                <a href="plan.php">Plans</a>
+            </nav>
+            <div class="left-buttons">
+                <a href="login.php">
+                <button class="login-btn" >Log in</button>
+    </a>
+                <button class="signup-btn">Sign up</button>
             </div>
-            <a href="#">Plans</a>
-        </nav>
-        <div class="left-buttons">
-            <a href="login.php">
-            <button class="login-btn" >Log in</button>
-</a>
-            <button class="signup-btn">Sign up</button>
-        </div>
-    </header>
+        </header>
 
     <main class="main-content">
         <h1>What will you <br> <span class="highlight">achieve</span> today?</h1>
         <p>Remember everything and tackle any project with your notes, tasks,<br> and schedule all in one place.</p>
+        <a href="plan.php">
         <button class="cta-btn">Get DoneDeal free</button>
+</a>
         <p><a href="login.php" class="login-link">Already have an account? Log in</a></p>
         <div class="options">
     <div class="option">
