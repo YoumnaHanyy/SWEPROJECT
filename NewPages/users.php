@@ -211,24 +211,56 @@
 </div>
 
 <div class="main-content1" id="taskContent" style="display: none;">
-    <h2>Your Tasks </h2>
+    <h2>Tasks </h2>
     <h4><span id="taskCount">0</span> tasks</h4>
+    <div class="task-controls">
+        <button id="newTaskBtn" class="new-task-btn">
+            <i class="fas fa-plus-circle"></i> New Task
+        </button>
+
+        <div class="task-filters">
+            <select id="filterCategory" class="filter-select">
+                <option value="all">All Categories</option>
+                <option value="work">Work</option>
+                <option value="personal">Personal</option>
+                <option value="school">School</option>
+            </select>
+
+            <select id="filterDeadline" class="filter-select">
+                <option value="all">All Deadlines</option>
+                <option value="today">Today</option>
+                <option value="thisWeek">This Week</option>
+                <option value="overdue">Overdue</option>
+            </select>
+
+            <select id="filterPriority" class="filter-select">
+                <option value="all">All Priorities</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+        </div>
+
+        <!-- Search Bar -->
+        <input type="text" id="searchTask" placeholder="Find tasks..." class="search-bar">
+    </div>
+
+    <!-- Task Tabs -->
     <div class="task-tabs">
         <span class="tab active">All tasks</span>
         <span class="tab">School</span>
-        <span class="tab">Work</span>
         <span class="tab">Personal</span>
-        <span class="tab">Assigned</span>
+        <span class="tab">Work</span>
+       
     </div>
 
     <!-- Table-like header for task details -->
     <div class="task-table-header">
         <span class="column-header">Title</span>
         <span class="column-header">Due date</span>
-        <span class="column-header">Assigned note</span>
+        <span class="column-header">Reminder</span>
         <span class="column-header">Assigned to</span>
     </div>
-
     <div id="taskDisplay" class="task-display">
         <!-- Tasks will be displayed here -->
     </div>
@@ -330,6 +362,7 @@ function clearTaskModal() {
   // Function to display tasks as a list with delete functionality
 // Function to display tasks as a list with delete functionality
 // Function to display tasks as a list with delete functionality
+// Function to display tasks in the right-hand side
 function displayTasks() {
     const taskDisplay = document.getElementById('taskDisplay');
     const taskCount = document.getElementById('taskCount'); // Get the task count span
@@ -338,41 +371,19 @@ function displayTasks() {
     tasks.forEach((task, index) => {
         const taskItem = document.createElement('div');
         taskItem.classList.add('task-item');
-        
-        // Add checkbox, title, and delete button
+        taskItem.setAttribute('data-index', index);
+
+        // Add the task data in the grid structure
         taskItem.innerHTML = `
-            <div class="task-header">
-                <input type="checkbox" class="task-checkbox" data-index="${index}">
-                <h3 class="task-desc">${task.description}</h3>
-            </div>
-            <div class="task-meta">
-                <small>Assigned to: ${task.assignedTo}</small><br>
-                <small>Due: ${task.dueDate}</small><br>
-                <small>Reminder: ${task.reminder}</small><br>
-                <small>Priority: ${task.priority}</small><br>
-                <small>Flag: ${task.flag}</small>
-            </div>
+            <div class="task-desc">${task.description}</div>
+            <div class="task-meta">${task.dueDate || 'No Due Date'}</div>
+            <div class="task-meta">${task.reminder || 'No Reminder'}</div>
+            <div class="task-meta">${task.assignedTo || 'Unassigned'}</div>
             <button class="delete-btn" data-index="${index}">Delete</button>
         `;
 
         // Append the task item to the display
         taskDisplay.appendChild(taskItem);
-
-        // Add event listener to checkbox to toggle delete button
-        const checkbox = taskItem.querySelector('.task-checkbox');
-        checkbox.addEventListener('change', function () {
-            if (checkbox.checked) {
-                taskItem.classList.add('selected');
-            } else {
-                taskItem.classList.remove('selected');
-            }
-        });
-
-        // Add event listener to task title to toggle details
-        const taskTitle = taskItem.querySelector('.task-desc');
-        taskTitle.addEventListener('click', function () {
-            taskItem.classList.toggle('active'); // Toggle active class to show/hide details
-        });
 
         // Add event listener to delete button
         const deleteBtn = taskItem.querySelector('.delete-btn');
@@ -390,6 +401,7 @@ function deleteTask(index) {
     tasks.splice(index, 1); // Remove the task from the array
     displayTasks(); // Re-display tasks
 }
+
 
 
     // When "Create Task" button is clicked
@@ -593,6 +605,44 @@ window.onload = function() {
     // Show home content by default
     document.getElementById('homeContent').style.display = 'block';
 };
+document.getElementById('filterCategory').addEventListener('change', function () {
+    filterTasks();
+});
+
+document.getElementById('filterDeadline').addEventListener('change', function () {
+    filterTasks();
+});
+
+document.getElementById('filterPriority').addEventListener('change', function () {
+    filterTasks();
+});
+
+document.getElementById('searchTask').addEventListener('input', function () {
+    filterTasks();
+});
+
+// Function to filter tasks
+function filterTasks() {
+    const categoryFilter = document.getElementById('filterCategory').value;
+    const deadlineFilter = document.getElementById('filterDeadline').value;
+    const priorityFilter = document.getElementById('filterPriority').value;
+    const searchQuery = document.getElementById('searchTask').value.toLowerCase();
+
+    // Loop through tasks and apply the filters (Assuming tasks array contains all the task details)
+    tasks.forEach((task, index) => {
+        let taskElement = document.querySelector(`[data-index="${index}"]`);
+        let matchCategory = categoryFilter === 'all' || task.category === categoryFilter;
+        let matchDeadline = deadlineFilter === 'all' || task.deadline === deadlineFilter;
+        let matchPriority = priorityFilter === 'all' || task.priority === priorityFilter;
+        let matchSearch = task.description.toLowerCase().includes(searchQuery);
+
+        if (matchCategory && matchDeadline && matchPriority && matchSearch) {
+            taskElement.style.display = 'block';
+        } else {
+            taskElement.style.display = 'none';
+        }
+    });
+}
 
 
     </script>
