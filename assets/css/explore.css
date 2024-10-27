@@ -549,3 +549,54 @@ section{
 
   }
   
+
+
+
+  /*******************************************************/
+
+  .container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .text-section {
+    max-width: 400px;
+    position: relative;
+    left: 210px;
+  }
+
+  h1 {
+    font-size: 2em;
+    margin: 0;
+  }
+
+  p {
+    color: #333;
+    line-height: 1.5;
+    margin: 10px 0;
+  }
+
+  .learn-more {
+    color: #0073e6;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+
+  .learn-more:hover {
+    color: #005bb5;
+    text-decoration: underline;
+  }
+
+  .image-section {
+    max-width: 300px;
+  }
+
+  .image-section img {
+    left: 220px;
+    position: relative;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
