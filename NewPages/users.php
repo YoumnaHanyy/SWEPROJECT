@@ -211,7 +211,10 @@
 </div>
 
 <div class="main-content1" id="taskContent" style="display: none;">
-    <h2>Your Tasks</h2>
+    <h2>Your Tasks </h2>
+    <h4><span id="taskCount">0</span> tasks</h4>
+
+
     <div id="taskDisplay" class="task-display">
         <!-- Tasks will be displayed here -->
     </div>
@@ -315,6 +318,7 @@ function clearTaskModal() {
 // Function to display tasks as a list with delete functionality
 function displayTasks() {
     const taskDisplay = document.getElementById('taskDisplay');
+    const taskCount = document.getElementById('taskCount'); // Get the task count span
     taskDisplay.innerHTML = ''; // Clear previous tasks
 
     tasks.forEach((task, index) => {
@@ -362,6 +366,9 @@ function displayTasks() {
             deleteTask(index);
         });
     });
+
+    // Update the task count
+    taskCount.textContent = tasks.length; // Update the number of tasks
 }
 
 // Delete task function
@@ -402,7 +409,7 @@ function deleteTask(index) {
     });
 
 
-    </script>
+    
 
 
 
@@ -411,7 +418,7 @@ function deleteTask(index) {
 
 
 
-    <script>
+   
         // Function to hide the homeContent
 function hideHomeContent() {
     document.getElementById('homeContent').style.display = 'none';
@@ -427,7 +434,7 @@ document.getElementById('noteBtn').addEventListener('click', function() {
 // Show task modal when +Task button is clicked
 document.getElementById('taskbtn').addEventListener('click', function() {
     const taskModal = document.getElementById('taskModal');
-    hideHomeContent(); // Hide home content
+   
     taskModal.style.display = 'flex'; // Show the task modal when the button is clicked
 });
 
