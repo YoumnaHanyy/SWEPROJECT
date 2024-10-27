@@ -421,9 +421,18 @@ function deleteTask(index) {
         const taskModal = document.getElementById('taskModal');
         taskModal.style.display = 'none'; // Hide the task modal when the Cancel button is clicked
     });
-   
+
 
     
+
+
+
+
+
+
+
+
+   
         // Function to hide the homeContent
 function hideHomeContent() {
     document.getElementById('homeContent').style.display = 'none';

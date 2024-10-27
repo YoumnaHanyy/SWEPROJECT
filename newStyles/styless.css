@@ -641,6 +641,7 @@ input:checked + .slider {
 input:checked + .slider:before {
     transform: translateX(14px);
 }
+
 .event-modal-content h2 {
     margin-bottom: 15px;
     display: flex;
