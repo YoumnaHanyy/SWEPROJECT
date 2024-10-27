@@ -334,7 +334,7 @@ window.onload = function() {
     document.getElementById('homeContent').style.display = 'block';
     });
     
-    
+
     // Load Home page content by default on page refresh
     window.onload = function() {
     // Show home content by default
@@ -379,5 +379,40 @@ window.onload = function() {
     }
     });
     }
+    // Function to open the Notebook modal
+document.getElementById("notebooksBtn").addEventListener("click", function () {
+    document.getElementById("notebookModal").style.display = "flex";
+});
+
+// Function to close the Notebook modal
+function closeNotebookModal() {
+    document.getElementById("notebookModal").style.display = "none";
+}
+
+// Function to handle creating a new notebook
+function createNotebook() {
+    const notebookName = document.getElementById("notebookName").value.trim();
+    
+    if (notebookName === "") {
+        alert("Please enter a name for the notebook.");
+        return;
+    }
+
+    // Here you can add your logic to save the notebook, e.g., sending it to the server
+    console.log("New Notebook Created:", notebookName);
+    
+    // Close the modal and clear the input field
+    closeNotebookModal();
+    document.getElementById("notebookName").value = "";
+}
+// Ensure this code is wrapped in DOMContentLoaded to wait for the DOM to fully load
+document.addEventListener("DOMContentLoaded", function () {
+    // Function to open the Notebook modal
+    document.getElementById("notebooksBtn").addEventListener("click", function () {
+        document.getElementById("notebookModal").style.display = "flex";
+    });
+});
+
+
     
 

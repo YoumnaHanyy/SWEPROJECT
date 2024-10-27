@@ -42,7 +42,7 @@
             <button class="btn" id="tasksBtn"><i class="fas fa-tasks"></i> Tasks</button>
             <button class="btn"><i class="fas fa-file"></i> Files</button>
             <button class="btn" id="calendarBtn"><i class="fas fa-calendar"></i> Calendar</button>
-            <button class="btn"><i class="fas fa-book"></i> Notebooks</button>
+            <button class="btn" id="notebooksBtn"><i class="fas fa-book"></i> Notebooks</button>
             <button class="btn"><i class="fas fa-tag"></i> Tags</button>
             <button class="btn"><i class="fas fa-share-alt"></i> Shared with Me</button>
             <button class="btn"><i class="fas fa-trash"></i> Trash</button>
@@ -261,13 +261,30 @@
         <!-- Tasks will be displayed here -->
          
     </div>
+    <!-- Notebook Creation Modal -->
+<div class="notebook-modal" id="notebookModal" style="display: none;">
+    <div class="notebook-modal-content">
+        <h2>Create New Notebook</h2>
+        <p>Notebooks are useful for grouping notes around a common topic. They can be private or shared.</p>
+        
+        <label for="notebookName">Name</label>
+        <input type="text" id="notebookName" placeholder="Notebook name">
+        
+        <div class="notebook-actions">
+            <button class="cancel-notebook-btn" onclick="closeNotebookModal()">Cancel</button>
+            <button class="create-notebook-btn" onclick="createNotebook()">Create Notebook</button>
+        </div>
+    </div>
+</div>
+
 
     
 <div id="mainContent1">
     <div id="taskListContainer"></div>
 </div>
 
-<script src="../java/newjs.js"></script>
+<script src="../java/newjs.js" defer></script>
+
     
 
 </body>
