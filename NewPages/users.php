@@ -189,6 +189,29 @@
     <div class="notes-header">
         <h3>yomna2207085c5a50bc41c3d015e's Home</h3>
     </div>
+    <div class="notes-section">
+        <div class="note-card">
+            <p>Untitled</p>
+            <small>Oct 15</small>
+        </div>
+        <div class="note-card">
+            <p>Meeting note</p>
+            <p>Date & Time Goal<br>Attendees Me<br>Agenda Notes<br>Action Items</p>
+            <small>Oct 14</small>
+        </div>
+      
+    </div>
+    <div class="recently-captured">
+        <h3>Recently Captured</h3>
+        <div class="capture-options">
+            <button>Web Clips</button>
+            <button>Images</button>
+            <button>Documents</button>
+            <button>Audio</button>
+            <button>Emails</button>
+        </div>
+   
+
     <section class="container">
   <div class="heading">
     <img class="heading__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/laptop.svg">
@@ -210,6 +233,7 @@
     <ul class="toDoList">
     </ul>
   </div>
+</div>
 </section>
 </div>
 
