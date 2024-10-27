@@ -17,6 +17,7 @@ document.getElementById('homeContent').style.display = 'block';
 let tasks = [];
 let isEditing = false; // Flag to track if we're editing an existing task
 let taskIndexToEdit = null;
+
 // Get references to the task fields
 const taskDescriptionInput = document.querySelector('textarea');
 const taskDateButtons = document.querySelectorAll('.task-date-options button');
@@ -24,19 +25,27 @@ const taskReminderButtons = document.querySelectorAll('.task-reminder-options bu
 const taskPriorityButtons = document.querySelectorAll('.task-priority-options button');
 const taskAssignedInput = document.querySelector('input[placeholder="Assign"]');
 const taskFlagInput = document.querySelector('input[type="checkbox"]');
+const deleteBtn = document.querySelector('.delete-btn'); // Reference to the delete button
 
-
+// Attach a single event listener for the "Create Task" button
+document.querySelector('.create-btn').addEventListener('click', function () {
+    if (isEditing) {
+        updateTask(taskIndexToEdit); // Update the existing task
+    } else {
+        saveTask(); // Create a new task
+    }
+});
 
 // Function to toggle selection for buttons
 function toggleSelection(buttons) {
-buttons.forEach(button => {
-button.addEventListener('click', function () {
-    // Remove selected class from all buttons
-    buttons.forEach(btn => btn.classList.remove('selected'));
-    // Add selected class to the clicked button
-    this.classList.add('selected');
-});
-});
+    buttons.forEach(button => {
+        button.addEventListener('click', function () {
+            // Remove selected class from all buttons
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            // Add selected class to the clicked button
+            this.classList.add('selected');
+        });
+    });
 }
 
 // Apply toggle selection function to each button group
@@ -45,162 +54,162 @@ toggleSelection(taskReminderButtons);
 toggleSelection(taskPriorityButtons);
 
 // Function to save the task
-// Update the saveTask function
 function saveTask() {
-const description = taskDescriptionInput.value;
-const assignedTo = taskAssignedInput.value;
-let dueDate = ''; 
-let reminder = ''; 
-let priority = ''; 
-const isFlagged = taskFlagInput.checked ? 'Flagged' : 'Not Flagged';
+    const description = taskDescriptionInput.value;
+    const assignedTo = taskAssignedInput.value;
+    let dueDate = '';
+    let reminder = '';
+    let priority = '';
+    const isFlagged = taskFlagInput.checked ? 'Flagged' : 'Not Flagged';
 
-// Get selected values
-dueDate = Array.from(taskDateButtons).find(button => button.classList.contains('selected'))?.textContent || '-';
-reminder = Array.from(taskReminderButtons).find(button => button.classList.contains('selected'))?.textContent || '-';
-priority = Array.from(taskPriorityButtons).find(button => button.classList.contains('selected'))?.textContent || '-';
+    // Get selected values
+    dueDate = Array.from(taskDateButtons).find(button => button.classList.contains('selected'))?.textContent || '-';
+    reminder = Array.from(taskReminderButtons).find(button => button.classList.contains('selected'))?.textContent || '-';
+    priority = Array.from(taskPriorityButtons).find(button => button.classList.contains('selected'))?.textContent || '-';
 
-const task = {
-description: description || 'No Description', 
-assignedTo: assignedTo || 'Unassigned',
-dueDate: dueDate,
-reminder: reminder,
-priority: priority,
-flag: isFlagged
-};
+    const task = {
+        description: description || 'No Description',
+        assignedTo: assignedTo || 'Unassigned',
+        dueDate: dueDate,
+        reminder: reminder,
+        priority: priority,
+        flag: isFlagged
+    };
 
-tasks.push(task);
-clearTaskModal();a
-displayTasks();
+    tasks.push(task);
+    clearTaskModal();
+    displayTasks();
 }
 
 // Function to clear the task modal after saving
 function clearTaskModal() {
-taskDescriptionInput.value = '';
-taskAssignedInput.value = '';
-taskFlagInput.checked = false;
-taskDateButtons.forEach(button => button.classList.remove('selected'));
-taskReminderButtons.forEach(button => button.classList.remove('selected'));
-taskPriorityButtons.forEach(button => button.classList.remove('selected'));
-document.getElementById('taskModal').style.display = 'none';
+    taskDescriptionInput.value = '';
+    taskAssignedInput.value = '';
+    taskFlagInput.checked = false;
+    taskDateButtons.forEach(button => button.classList.remove('selected'));
+    taskReminderButtons.forEach(button => button.classList.remove('selected'));
+    taskPriorityButtons.forEach(button => button.classList.remove('selected'));
+    document.getElementById('taskModal').style.display = 'none';
+    isEditing = false;
+    taskIndexToEdit = null;
+    document.querySelector('.create-btn').textContent = 'Create Task'; // Reset button text
+    deleteBtn.style.display = 'none'; // Hide delete button after closing modal
 }
 
-
-// Function to display tasks in the right-hand side
-// Function to display tasks as a list with delete functionality
-// Function to display tasks as a list with delete functionality
-// Function to display tasks as a list with delete functionality
 // Function to display tasks in the right-hand side
 function displayTasks() {
-const taskDisplay = document.getElementById('taskDisplay');
-const taskCount = document.getElementById('taskCount'); // Get the task count span
-taskDisplay.innerHTML = ''; // Clear previous tasks
+    const taskDisplay = document.getElementById('taskDisplay');
+    const taskCount = document.getElementById('taskCount'); // Get the task count span
+    taskDisplay.innerHTML = ''; // Clear previous tasks
 
-tasks.forEach((task, index) => {
-const taskItem = document.createElement('div');
-taskItem.classList.add('task-item');
-    if (task.completed) {
-        taskItem.classList.add('completed'); // Add completed class if the task is done
-    }
-taskItem.setAttribute('data-index', index);
+    tasks.forEach((task, index) => {
+        const taskItem = document.createElement('div');
+        taskItem.classList.add('task-item');
+        if (task.completed) {
+            taskItem.classList.add('completed'); // Add completed class if the task is done
+        }
+        taskItem.setAttribute('data-index', index);
 
-// Add the task data in the grid structure
-taskItem.innerHTML = `
+        // Add the task data in the grid structure
+        taskItem.innerHTML = `
+            <div class="task-desc">
+                <input type="checkbox" class="task-checkbox" ${task.completed ? 'checked' : ''} data-index="${index}">
+                ${task.description}
+            </div>
+            <div class="task-meta">${task.dueDate || '-'}</div>
+            <div class="task-meta">${task.reminder || '-'}</div>
+            <div class="task-meta">${task.assignedTo || '-'}</div>
+        `;
 
-    <div class="task-desc">
-     <input type="checkbox" class="task-checkbox" ${task.completed ? 'checked' : ''} data-index="${index}">
-     ${task.description}
-     </div>
-    <div class="task-meta">${task.dueDate || '-'}</div>
-    <div class="task-meta">${task.reminder || '-'}</div>
-    <div class="task-meta">${task.assignedTo || '-'}</div>
-   
-`;
+        // Append the task item to the display
+        taskDisplay.appendChild(taskItem);
 
-// Append the task item to the display
-taskDisplay.appendChild(taskItem);
-
-taskItem.querySelector('.task-desc').addEventListener('click', function () {
-    openTaskModalForEdit(index);
-});
-});
-document.querySelectorAll('.task-checkbox').forEach(checkbox => {
-    checkbox.addEventListener('change', function () {
-        toggleTaskCompletion(this.getAttribute('data-index'));
+        // Add event listener for editing
+        taskItem.querySelector('.task-desc').addEventListener('click', function () {
+            openTaskModalForEdit(index);
+        });
     });
-});
-document.querySelector('.create-btn').addEventListener('click', function () {
-    if (isEditing) {
-        updateTask(taskIndexToEdit); // Update the existing task
-    } else {
-        saveTask(); // Create a new task
-    }
-});
-// Update the task count
-taskCount.textContent = tasks.length; // Update the number of tasks
+
+    // Update the task count
+    taskCount.textContent = tasks.length; // Update the number of tasks
 }
 
+// Function to open the task modal for editing
 function openTaskModalForEdit(taskIndex) {
     const task = tasks[taskIndex]; // Get the selected task
 
     // Populate modal fields with task data
-    document.querySelector('textarea').value = task.description;
-    document.querySelector('input[placeholder="Assign"]').value = task.assignedTo;
+    taskDescriptionInput.value = task.description;
+    taskAssignedInput.value = task.assignedTo;
     document.getElementById('taskCategory').value = task.category;
-    document.querySelectorAll('.task-date-options button').forEach(button => {
+    taskDateButtons.forEach(button => {
         if (button.textContent === task.dueDate) {
             button.classList.add('selected');
         } else {
             button.classList.remove('selected');
         }
     });
-    document.querySelectorAll('.task-reminder-options button').forEach(button => {
+    taskReminderButtons.forEach(button => {
         if (button.textContent === task.reminder) {
             button.classList.add('selected');
         } else {
             button.classList.remove('selected');
         }
     });
-    document.querySelectorAll('.task-priority-options button').forEach(button => {
+    taskPriorityButtons.forEach(button => {
         if (button.textContent === task.priority) {
             button.classList.add('selected');
         } else {
             button.classList.remove('selected');
         }
     });
-    document.querySelector('input[type="checkbox"]').checked = task.flag === 'Flagged';
+    taskFlagInput.checked = task.flag === 'Flagged';
 
     // Show the modal
     document.getElementById('taskModal').style.display = 'flex';
     isEditing = true;
     taskIndexToEdit = taskIndex;
 
-    // Update task on "Create Task" button click (which is now an "Update Task" button)
-    document.querySelector('.create-btn').textContent = 'Update Task'; // Change button text to "Update Task"
-    document.querySelector('.create-btn').onclick = function () {
-        updateTask(taskIndex);
-    };
+    // Show delete button
+    deleteBtn.style.display = 'block';
+
+    // Change the button text to "Update Task"
+    document.querySelector('.create-btn').textContent = 'Update Task';
 }
 
 // Function to update the task with the modified data
 function updateTask(taskIndex) {
     // Update task with new data from modal
-    tasks[taskIndex].description = document.querySelector('textarea').value;
-    tasks[taskIndex].assignedTo = document.querySelector('input[placeholder="Assign"]').value;
-    tasks[taskIndex].category = document.getElementById('taskCategory').value;
-    tasks[taskIndex].dueDate = Array.from(document.querySelectorAll('.task-date-options button'))
-        .find(button => button.classList.contains('selected'))?.textContent || '-';
-    tasks[taskIndex].reminder = Array.from(document.querySelectorAll('.task-reminder-options button'))
-        .find(button => button.classList.contains('selected'))?.textContent || '-';
-    tasks[taskIndex].priority = Array.from(document.querySelectorAll('.task-priority-options button'))
-        .find(button => button.classList.contains('selected'))?.textContent || '-';
-    tasks[taskIndex].flag = document.querySelector('input[type="checkbox"]').checked ? 'Flagged' : 'Not Flagged';
+    tasks[taskIndex].description = taskDescriptionInput.value;
+    tasks[taskIndex].assignedTo = taskAssignedInput.value;
+    tasks[taskIndex].dueDate = Array.from(taskDateButtons).find(button => button.classList.contains('selected'))?.textContent || '-';
+    tasks[taskIndex].reminder = Array.from(taskReminderButtons).find(button => button.classList.contains('selected'))?.textContent || '-';
+    tasks[taskIndex].priority = Array.from(taskPriorityButtons).find(button => button.classList.contains('selected'))?.textContent || '-';
+    tasks[taskIndex].flag = taskFlagInput.checked ? 'Flagged' : 'Not Flagged';
 
     // Close the modal
-    document.getElementById('taskModal').style.display = 'none';
+    clearTaskModal();
 
     // Re-display tasks to reflect the changes
     displayTasks();
 }
+
+// Function to delete the task
+function deleteTask(taskIndex) {
+    // Remove task from tasks array
+    tasks.splice(taskIndex, 1);
+
+    // Close the modal and update the task list
+    clearTaskModal();
+    displayTasks();
+}
+
+// Attach delete button functionality
+deleteBtn.addEventListener('click', function () {
+    deleteTask(taskIndexToEdit); // Delete the task at the current index
+});
+
+
 
 function toggleTaskCompletion(index) {
 tasks[index].completed = !tasks[index].completed; // Toggle the completion status
@@ -208,9 +217,7 @@ displayTasks(); // Re-render the tasks
 }
 
 // When "Create Task" button is clicked
-document.querySelector('.create-btn').addEventListener('click', function() {
-saveTask();
-});
+
 
 // Show task content when "Tasks" button is clicked
 document.getElementById('tasksBtn').addEventListener('click', function() {
@@ -410,44 +417,51 @@ window.onload = function() {
 // Show home content by default
 document.getElementById('homeContent').style.display = 'block';
 };
-document.getElementById('filterCategory').addEventListener('change', function () {
-filterTasks();
-});
-
-document.getElementById('filterDeadline').addEventListener('change', function () {
-filterTasks();
-});
-
-document.getElementById('filterPriority').addEventListener('change', function () {
-filterTasks();
-});
 
 document.getElementById('searchTask').addEventListener('input', function () {
 filterTasks();
 });
 
-// Function to filter tasks
-function filterTasks() {
-const categoryFilter = document.getElementById('filterCategory').value;
-const deadlineFilter = document.getElementById('filterDeadline').value;
-const priorityFilter = document.getElementById('filterPriority').value;
-const searchQuery = document.getElementById('searchTask').value.toLowerCase();
 
-// Loop through tasks and apply the filters (Assuming tasks array contains all the task details)
-tasks.forEach((task, index) => {
-let taskElement = document.querySelector(`[data-index="${index}"]`);
-let matchCategory = categoryFilter === 'all' || task.category === categoryFilter;
-let matchDeadline = deadlineFilter === 'all' || task.deadline === deadlineFilter;
-let matchPriority = priorityFilter === 'all' || task.priority === priorityFilter;
-let matchSearch = task.description.toLowerCase().includes(searchQuery);
 
-if (matchCategory && matchDeadline && matchPriority && matchSearch) {
-    taskElement.style.display = 'block';
-} else {
-    taskElement.style.display = 'none';
-}
+
+let sortAscending = true; // To toggle between ascending and descending order
+
+// Event listener for sorting dropdown
+document.getElementById('sortBtn').addEventListener('click', function() {
+    const sortBy = document.getElementById('sortBy').value; // Get the selected sort criterion
+    sortAscending = !sortAscending; // Toggle sorting order (ascending/descending)
+
+    if (sortBy === 'priority') {
+        sortTasksByPriority(sortAscending);
+    } else if (sortBy === 'deadline') {
+        sortTasksByDeadline(sortAscending);
+    }
 });
+
+// Function to sort tasks by priority
+function sortTasksByPriority(ascending) {
+    tasks.sort((a, b) => {
+        const priorityOrder = { "Low": 1, "Medium": 2, "High": 3 };
+        let comparison = priorityOrder[a.priority] - priorityOrder[b.priority];
+        return ascending ? comparison : -comparison;
+    });
+    displayTasks(); // Re-display tasks after sorting
 }
+
+// Function to sort tasks by deadline
+function sortTasksByDeadline(ascending) {
+    tasks.sort((a, b) => {
+        const dateA = new Date(a.dueDate);
+        const dateB = new Date(b.dueDate);
+        let comparison = dateA - dateB;
+        return ascending ? comparison : -comparison;
+    });
+    displayTasks(); // Re-display tasks after sorting
+}
+
+
+
 
 document.getElementById('customDateBtn').addEventListener('click', function () {
     // Show the hidden input field for the date picker
@@ -572,3 +586,4 @@ flatpickr("#customReminderInput", {
         document.getElementById('customReminderBtn').textContent = dateStr;
     }
 });
+

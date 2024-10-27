@@ -1027,6 +1027,13 @@ color: rgba(255, 255, 255, 0.842);
         margin-left: 20px;
         color: #555;
     }
+    .delete-btn{
+background-color: red;
+color: white;
+border-radius: 5px;
+border: none
+    }
+    
 
     @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
 
@@ -1144,3 +1151,55 @@ color: rgba(255, 255, 255, 0.842);
       }
     }
     
+
+  /* Sort button styling */
+  .sort-select {
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.sort-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 10px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.sort-btn i {
+    font-size: 24px; /* Adjust icon size */
+    transition: transform 0.3s ease;
+}
+
+/* Rotate the icon when sorting is ascending */
+.sort-btn.active i {
+    transform: rotate(180deg);
+}
+.filter-select {
+    padding: 8px;
+    font-size: 14px;
+    margin-right: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.sort-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.sort-btn i {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.sort-btn.active i {
+    transform: rotate(180deg);
+}
+

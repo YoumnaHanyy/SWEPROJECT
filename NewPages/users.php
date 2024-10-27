@@ -159,6 +159,7 @@
                 <div class="task-actions">
                     <button class="cancel-btn">Cancel</button>
                     <button class="create-btn">Create task</button>
+                    <button class="delete-btn" style="display: none;">Delete Task</button>
                 </div>
             </div>
         </div>
@@ -246,27 +247,18 @@
         </button>
 
         <div class="task-filters">
-            <select id="filterCategory" class="filter-select">
-                <option value="all">All Categories</option>
-                <option value="work">Work</option>
-                <option value="personal">Personal</option>
-                <option value="school">School</option>
-            </select>
+    <label for="sortBy">Sort by:</label>
+    <select id="sortBy" class="filter-select">
+        <option value="priority">Priority</option>
+        <option value="deadline">Deadline</option>
+    </select>
 
-            <select id="filterDeadline" class="filter-select">
-                <option value="all">All Deadlines</option>
-                <option value="today">Today</option>
-                <option value="thisWeek">This Week</option>
-                <option value="overdue">Overdue</option>
-            </select>
+    <!-- Sort Button -->
+    <button id="sortBtn" class="sort-btn" title="Sort by Priority or Deadline">
+        <i class="fa-solid fa-arrow-down-wide-short"></i>
+    </button>
+</div>
 
-            <select id="filterPriority" class="filter-select">
-                <option value="all">All Priorities</option>
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
-            </select>
-        </div>
 
         <!-- Search Bar -->
         <input type="text" id="searchTask" placeholder="Find tasks..." class="search-bar1">

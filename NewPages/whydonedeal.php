@@ -14,7 +14,9 @@
 <header class="header">
         <div class="logo">
             <img src="../Images/logoo.jpg" alt="DoneDeal Logo">
-            <span >DoneDeal</span>
+            <a href="Home.php" >
+                <span class="ll">DoneDeal</span>
+    </a>
         </div>
         <nav>
             <div class="dropdown">
