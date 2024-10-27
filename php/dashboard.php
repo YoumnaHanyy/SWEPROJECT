@@ -27,234 +27,76 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="..//assets/css/dashboard.css">
     <link rel="stylesheet" href="/project/SWEPROJECT/assets/css/edit-product.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-</head>
-<style>
-     .edit-user-form {
-background-color: #1e1e1e;
-padding: 20px;
-border-radius: 10px;
-color: white;
-width: 400px;
-margin: 20px auto;
-text-align: left;
+    <style>
+      .confirmation-modal {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 1000; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.89); /* Black with opacity */
+    justify-content: center; 
+    align-items: center;
 }
 
-.edit-user-form h2 {
-color: white;
-}
-
-.edit-user-form label {
-display: block;
-margin-top: 10px;
-}
-
-.edit-user-form input {
-width: 100%;
-padding: 8px;
-margin-top: 5px;
-border-radius: 5px;
-border: 1px solid #ccc;
-background-color: #333;
-color: white;
-}
-
-.edit-user-form button {
-margin-top: 15px;
-width: 100%;
-padding: 10px;
-background-color: #ba947b;
-border: none;
-color: white;
-font-weight: bold;
-cursor: pointer;
-border-radius: 5px;
-}
-
-.modal {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: rgba(0, 0, 0, 0.9);
-justify-content: center;
-align-items: center;
-z-index: 999;
- 
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.modal-content {
-background-color: #1e1e1e;
-padding: 20px;
-border-radius: 10px;
-color: white;
-width: 400px;
-margin: auto;
-transform: translateY(50px);
-    transition: transform 0.3s ease;
-    animation: slide-up 0.5s ease forwards;
-}
-
-
-@keyframes slide-up {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.modal.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.close-button {
-    float: right;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #ccc;
-    transition: color 0.3s;
-}
-
-.close-button:hover {
-    color: #fff;
-}
-#error-message,
-        #success-message {
-            text-align: center;
-            font-weight: bold;
-            display: none;
-        }
-
-       
-
-        .error-message {
-            color: #ff4d4d;
-            font-weight: bold;
-            display: none;
-            font-size: 14px;
-            margin: -5px 0 10px;
-        }
-
-        #success-message {
-            color: green;
-        }
-
-
-        .hidden {
-    display: none;
-     
-}
-
-/*/******* */
-
-.dashboard-card {
-    position: relative;
-    left: 340px;
-    margin-bottom: 40px;
-    width: 350px;
-    background-color: #fff;
+.confirmation-content {
+    background-color: #e2ab49;
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    animation: fadeIn 0.5s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
 }
 
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px;
-    border-bottom: 1px solid #eee;
+.confirmation-content h4 {
+    margin-bottom: 15px;
 }
 
-.card-header h4 {
-    font-size: 18px;
-    color: #333;
+.confirmation-content p {
+    margin-bottom: 20px;
 }
 
-.view-more {
-    color: #3f8dfd;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    transition: color 0.3s;
+.confirmation-content input {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 90%;
+    border: 1px solid #000000;
+    border-radius: 4px;
 }
 
-.view-more:hover {
-    color: #1a73e8;
+.btn-confirm, .btn-cancel {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px;
 }
 
-.task-item {
-    display: flex;
-    align-items: center;
-    padding: 12px 16px;
-    border-bottom: 1px solid #eee;
-    transition: background-color 0.3s;
+.btn-confirm {
+    background-color: #ff4444; /* Red */
+    color: white;
 }
 
-.task-item:hover {
-    background-color: #f9f9f9;
+.btn-cancel {
+    background-color: #007bff; /* Blue */
+    color: white;
 }
 
-.profile-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 12px;
-    transition: transform 0.3s;
+.btn-confirm:hover {
+    background-color: #ff3333;
 }
 
-.task-item:hover .profile-img {
-    transform: scale(1.05);
+.btn-cancel:hover {
+    background-color: #0056b3;
 }
 
-.task-details {
-    flex: 1;
-}
-
-.task-details p {
-    font-size: 15px;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 4px;
-}
-
-.task-details small {
-    display: block;
-    color: #777;
-    font-size: 13px;
-}
-
-.activity-info {
-    color: #999;
-    font-style: italic;
-}
-
-.task-time {
-    font-size: 13px;
-    color: #999;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-</style>
+    </style>
+</head>
 <body>
+   
     <div class="container">
         <div class="navigation" id="navigation">
             <ul>
@@ -403,7 +245,16 @@ transform: translateY(50px);
         </form>
     </div>
 </div>
-
+<div id="deleteConfirmPopup" class="confirmation-modal">
+    <div class="confirmation-content">
+        <h4>Confirm Deletion</h4>
+        <p>Type the username "<span id="usernameToDeleteDisplay"></span>" to confirm deletion:</p>
+        <input type="text" id="confirmUsernameInput" placeholder="Enter username to confirm">
+        <button id="confirmDeleteBtn" class="btn-confirm">Yes, Delete</button>
+        <button id="cancelDeleteBtn" class="btn-cancel">Cancel</button>
+        <p id="deletion-message" style="display:none; margin-top: 20px;"></p> <!-- Message display -->
+    </div>
+</div>
 
 
 
@@ -430,6 +281,8 @@ transform: translateY(50px);
                             echo "<td>" . $row["email"] . "</td>";
                             echo "<td>" . $row["password"] . "</td>";
                             echo "<td><button class='edit-button' onclick='openEditModal(\"" . $row["username"] . "\", \"" . $row["email"] . "\", \"" . $row["password"] . "\")'>Edit</button></td>";
+                            echo "<td><button class='delete-button' onclick='openDeleteConfirmModal(\"" . $row["username"] . "\")'>Delete</button></td>";
+
                             echo "</tr>";
                             $count++;
                         }
@@ -520,12 +373,12 @@ transform: translateY(50px);
 </div>
 
     <div class="dashboard-card">
-        <div class="card-header">
+        <div class="card-headery">
             <h4>Admin Dashboard - Active Users</h4>
             <a href="#" class="view-more">View All Users</a>
         </div>
         <div class="task-item">
-            <img src="assets/images/faces/face3.jpg" alt="profile image" class="profile-img">
+            <img src="..//assets/images/face3.jpg" alt="profile image" class="profile-img">
             <div class="task-details">
                 <p>Task: Complete Mobile App UI</p>
                 <small>Assigned by: John Doe</small>
@@ -534,7 +387,7 @@ transform: translateY(50px);
             <small class="task-time">Due: 10:07PM</small>
         </div>
         <div class="task-item">
-            <img src="assets/images/faces/face2.jpg" alt="profile image" class="profile-img">
+            <img src="..//assets/images/face4.jpg" alt="profile image" class="profile-img">
             <div class="task-details">
                 <p>Task: Backend API Development</p>
                 <small>Assigned by: Jane Smith</small>
@@ -543,7 +396,7 @@ transform: translateY(50px);
             <small class="task-time">Due: 01:07AM</small>
         </div>
         <div class="task-item">
-            <img src="assets/images/faces/face4.jpg" alt="profile image" class="profile-img">
+            <img src="..//assets/images/face3.jpg" alt="profile image" class="profile-img">
             <div class="task-details">
                 <p>Task: Redesign Website</p>
                 <small>Assigned by: Michael Lee</small>
@@ -552,7 +405,7 @@ transform: translateY(50px);
             <small class="task-time">Due: 04:42AM</small>
         </div>
         <div class="task-item">
-            <img src="assets/images/faces/face8.jpg" alt="profile image" class="profile-img">
+            <img src="..//assets/images/face2.jpg" alt="profile image" class="profile-img">
             <div class="task-details">
                 <p>Task: Set Up Analytics Dashboard</p>
                 <small>Assigned by: Sarah Brown</small>
@@ -561,7 +414,7 @@ transform: translateY(50px);
             <small class="task-time">Due: 07:44PM</small>
         </div>
         <div class="task-item">
-            <img src="assets/images/faces/face7.jpg" alt="profile image" class="profile-img">
+            <img src="..//assets/images/face1.jpg" alt="profile image" class="profile-img">
             <div class="task-details">
                 <p>Task: Design New Logo</p>
                 <small>Assigned by: Alex Green</small>
