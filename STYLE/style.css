@@ -830,18 +830,6 @@ margin-left: 39vh;
     font-weight: bold;
 }
 
-.delete-btn {
-    background-color: #ff4c4c;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.delete-btn:hover {
-    background-color: #ff3b3b;
-}
 
 /* Task Title as Header */
 .task-item h3 {
@@ -993,7 +981,7 @@ margin-left: 39vh;
 }
 
 /* Search Bar */
-.search-bar {
+.search-bar1 {
     background-color: #333;
     color: white;
     border: none;
@@ -1017,3 +1005,20 @@ margin-left: 39vh;
     flex-basis: 25%; /* Distribute equally across the container */
     text-align: left;
 }
+ .task-item.completed .task-desc {
+        text-decoration: line-through;
+        color: #888; /* Greyed out text for completed tasks */
+    }
+
+    .task-checkbox {
+        margin-right: 10px;
+    }
+
+    .task-desc {
+        flex-grow: 1;
+    }
+
+    .task-meta {
+        margin-left: 20px;
+        color: #555;
+    }
