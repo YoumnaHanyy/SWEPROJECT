@@ -405,5 +405,47 @@ window.onload = function() {
         closeNotebookModal(); // Close the modal after creation
         document.getElementById("notebookName").value = ""; // Clear the input field
     }
+    // Open and Close Modal Functions
+function openModal() {
+    document.getElementById("notebookModal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("notebookModal").style.display = "none";
+    clearForm(); // Clear form and error message when modal closes
+}
+
+// Clear form and error message
+function clearForm() {
+    document.querySelector("input[type='text']").value = "";
+    document.getElementById("error-message").textContent = "";
+}
+
+// Create Notebook Function
+function createNotebook() {
+    const notebookNameInput = document.querySelector("input[type='text']");
+    const notebookName = notebookNameInput.value.trim();
+    const errorMessage = document.getElementById("error-message");
+
+    if (notebookName === "") {
+        // Display error if input is empty
+        errorMessage.textContent = "Please enter a notebook name.";
+    } else {
+        // Hide modal and clear form
+        closeModal();
+
+        // Display notebook in the background
+        const notebookContainer = document.getElementById("notebookContainer");
+        const notebookDiv = document.createElement("div");
+        notebookDiv.className = "notebook";
+        notebookDiv.textContent = notebookName;
+        notebookContainer.appendChild(notebookDiv);
+    }
+}
+
+// Event listeners for buttons
+document.querySelector(".cancel-notebook-btn").addEventListener("click", closeModal);
+document.querySelector(".create-notebook-btn").addEventListener("click", createNotebook);
+
     
 

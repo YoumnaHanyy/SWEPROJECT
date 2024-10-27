@@ -1118,4 +1118,23 @@ margin-left: 39vh;
         margin-bottom: 20px; /* Space between the text and input field */
         line-height: 1.4;
     }
+    .error-message {
+        color: #ff4d4d; /* Red color for error text */
+        font-size: 14px;
+        margin-top: -10px;
+        margin-bottom: 10px;
+    }
+    
+    .notebook-container {
+        padding: 20px;
+    }
+    
+    .notebook {
+        background-color: #f0f0f0;
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+    
     

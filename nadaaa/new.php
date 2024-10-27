@@ -52,12 +52,17 @@
         <h2>Create New Notebook</h2>
         <p class="modal-intro">Notebooks are useful for grouping notes around a common topic. They can be private or shared.</p>
         <input type="text" placeholder="Notebook Name" />
+        <p id="error-message" class="error-message"></p>
         <div class="notebook-actions">
-            <button class="cancel-notebook-btn" onclick="closeModal()">Cancel</button>
+            <button class="cancel-notebook-btn">Cancel</button>
             <button class="create-notebook-btn">Create</button>
         </div>
     </div>
 </div>
+
+<!-- Container for displaying created notebooks -->
+<div id="notebookContainer" class="notebook-container"></div>
+
 
 
         <div class="download-upgrade">
