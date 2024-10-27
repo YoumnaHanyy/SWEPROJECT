@@ -113,6 +113,7 @@
             <h3>Find things fast</h3>
             <p>Get what you need, when you need it with powerful and flexible search capabilities.</p>
         </div>
+        
     </section>
     <section class="collaboration-section">
     <div class="collaboration-content">
@@ -128,13 +129,13 @@
 
 </section>
 <section class="whats-new">
-    <div class="new-content">
+    <div class="Exciting improvements">
         <h2>Thirty more <br> exciting <br> improvements <br> in DoneDeal</h2>
         <p>Product lead Federico Simionato shares how<br> the team introduced drastic improvements to<br> DoneDeal's Editor, Calendar, Tasks, Mobile experience,<br> and more between April and <br>June 2024.</p>
         <a href="#" class="read-more-link">Read more</a>
     </div>
-    <div class="Exciting improvements">
-        <img src="30mor.png" alt="Exciting improvements" />
+    <div class="new-content">
+        <img src="30more.png" alt="Exciting improvements" />
     </div>
 </section>
 <footer class="footer">
