@@ -10,6 +10,7 @@
 </head>
 <body>
 <div class="container">
+<img src="shape2.png" alt="shape2" class="shape2">
 <header class="header">
         <div class="logo">
             <img src="logoo.jpg" alt="DoneDeal Logo">
@@ -54,7 +55,8 @@
         when you need it.</p>
         <a href="#" class="btn">Get DoneDeal free</a>
         <p class="login">Already have an account? <a href="#">Log in now</a></p>
-        <img src="shape11.png" alt="shape1" class="shape1">
+        <img src="shape1.png" alt="shape1" class="shape1">
+      
     </div>
     <div class="testimonial-container">
     <div class="testimonial-image">
