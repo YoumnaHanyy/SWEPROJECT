@@ -1,0 +1,530 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+scroll-behavior: smooth;
+}
+
+body{
+min-height: 100vh;
+overflow-x: hidden;
+background-color: #ba947b; 
+}
+.container{
+    position: relative;
+    width: 100%;
+}
+.logo{
+    width: 220px;
+    height: 40px;
+    margin: 15px;
+}
+.navigation{
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    background-color: #1e1e1e;
+    border-left: 10px  white;
+    transition: 0.5s;
+    overflow: hidden;
+    z-index: 100;
+}
+.navigation ul{
+position: absolute;
+top: 0;
+
+left: 0;
+width: 100%;
+}
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.navigation ul li:hover{
+   background-color: #1e1e1e;
+}
+.navigation ul li:nth-child(1){
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+.navigation ul li a{
+    position: relative;
+    display: block;
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+}
+
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    margin-bottom: 20px;
+    
+}
+.navigation ul li a .icon i{
+    font-size: 1.75rem;
+}
+
+.navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 20px;
+    height: 60px;
+    line-height: 60px;
+   text-align: start;
+    white-space: nowrap;
+}
+
+.icon{
+    color: white;
+    
+}
+.title{
+    color :white;
+    
+}
+
+.main{
+    position: absolute;
+    width:calc(100%-250px) ;
+    left: 250px;
+    min-height: 100vh;
+    background-color: #ba947b;
+}
+.top{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0,10px;
+}
+.toggle{
+    position: relative;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    background-color: #ba947b;
+    justify-content: center;
+    display: flex;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-right: 350px;
+}
+.search{
+    position: relative;
+    width: 400px;
+    margin-right: 370px;
+   
+}
+.search label{
+    width: 100%;
+    color: #1e1e1e;
+}
+.search label input{
+    width: 100%;
+    height: 40px;
+    border-radius: 90px;
+    padding: 5px,18px;
+    padding-left: 35px;
+    border: 2.5px solid #1e1e1e;
+    outline: none;
+}
+.search label i{
+    top: 8px;
+    left: 10px;
+    font-size: 1.2rem;
+    position: absolute;
+}
+.user{
+    position: relative;
+    width: 45px;
+    height:45px;
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
+}
+.user img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.contain{
+    padding :25px;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-left: 70px;
+  }
+  .card{
+      position: relative;
+      background-color: #1e1e1e;
+      padding: 25px;
+      box-shadow: 0 5px 25px #1e1e1e;
+      border-radius: 10px;
+      border-color: #1e1e1e;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+    cursor: pointer;
+    margin-top: 55px;
+    margin-right: 30px;
+     margin-left: 300px;
+    width:13.1em;
+    z-index: 1;
+  }
+  .card:hover{
+      transform: scale(1.1);
+  }
+  .card h4{
+      position: relative;
+      font-weight: 500;
+      font-size: 2.4rem;
+      color: white;
+      margin-left: 14px;
+      align-items: center;
+      justify-content: center;
+  }
+  .card p{
+      color: white;
+      font-size: 1.5rem;
+      text-align: center;
+      }
+  .iconn{
+      color: white;
+      font-size: 2.75rem;
+      padding-left: 2px;
+  }
+
+
+.details{
+    position: relative;
+    width: 125%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 30px;
+    margin-top: 5px;
+    margin-left: 240px; /* Adjust this value as needed */
+    float: left; /* Add this line */
+}
+.usersss{
+    position: relative;
+    width: 125%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 0px;
+    margin-top: 5px;
+    margin-left: 240px; /* Adjust this value as needed */
+    float: left; /* Add this line */
+}
+.Products{
+    position: relative;
+    width: 125%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 30px;
+    margin-top: 5px;
+    margin-left: 240px; /* Adjust this value as needed */
+    float: left; /* Add this line */
+}
+ .scroll-bg{
+    background: #1e1e1e;
+width: 125px;
+margin : 10% auto;
+}
+.scroll-div{
+width: 125px;
+ height: 300px;
+background: #1e1e1e;
+overflow: hidden;
+overflow-y: scroll; }
+
+.recent{
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    background: #1e1e1e;
+    padding: 20px;
+    box-shadow: 0 7px 25px #1e1e1e;
+    border-radius: 50px;
+
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.title h2{
+    font-weight: 600;
+    color: white;
+}
+.view{
+    position: relative;
+    padding: 5px 10px;
+    text-decoration: none;
+    background-color: white;
+    border-radius: 6px;
+    color: #1e1e1e;
+}
+ table{
+width: 100%;
+border-collapse: collapse;
+ margin-top: 10px; 
+}
+.details table thead td{
+    font-weight: 600;
+}
+.recent table tr{
+    color: white;
+    border-bottom: 1px solid white;
+}
+.recent table tr:last-child{
+    border-bottom: none;
+}
+.recent table tbody tr :hover{
+    background: #1e1e1e;
+    color: white;
+}
+.recent table tr td{
+    padding: 10px;
+
+}
+.recent table tr td:last-child{
+    text-align: end;
+}
+.recent table tr td:nth-child(2){
+    text-align: end;
+}
+.recent table tr td:nth-child(3){
+    text-align: center;
+}
+.scrollable-div {
+    height: 300px;
+    overflow-y: scroll; 
+  }
+.deliver{
+    padding: 2px 4px;
+    background: green;
+    color:white;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.return{
+    padding: 2px 4px;
+    background: red;
+    color:white;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.pend{
+    padding: 2px 4px;
+    background:blue;
+    color:white;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.recentcustomers{
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    padding: 15px;
+    background: white;
+    box-shadow: 0 7px 25px #1e1e1e;
+    border-radius: 20px;
+    width: 30%;
+}
+@media only screen and (max-width:844px) 
+{
+.title{
+    color: white;
+}
+.navigation{
+    width: 170px; 
+    z-index: 100;
+}
+.logo{
+    width: 140px;
+
+}
+.toggle{
+right: 80px;
+
+}
+.search{
+   position: relative;
+   width: 140px;
+   right: 420px;
+}
+.recent{
+    position: relative;
+    right: 75px;
+    width: 400px;
+}
+.card{
+    position: relative; 
+        right: 150px;
+        z-index: 1;
+        width: 120px;
+    }
+.card h4{
+    position: relative;
+    font-weight: 500;
+    font-size: 1rem;
+    color: white;
+    margin-left: 14px;
+    align-items: center;
+    justify-content: center;
+}
+.card p{
+    color: white;
+    font-size: 0.8rem;
+    text-align: center;
+    }
+.iconn{
+    color: white;
+    font-size: 2rem;
+    padding-left: 2px;
+}
+}
+/* secound */
+@media only screen and (max-width:932px) 
+{
+.title{
+    color: white;
+}
+.navigation{
+    width: 170px; 
+    z-index: 100;
+}
+.logo{
+    width: 140px;
+
+}
+.toggle{
+right: 90px;
+
+}
+.search{
+   position: relative;
+   width: 90px;
+   right: 450px;
+}
+.recent{
+    position: relative;
+    right: 80px;
+    width: 400px;
+}
+.card{
+    position: relative; 
+        right: 180px;
+        z-index: 1;
+        width: 120px;
+    }
+.card h4{
+    position: relative;
+    font-weight: 500;
+    font-size: 1rem;
+    color: white;
+    margin-left: 14px;
+    align-items: center;
+    justify-content: center;
+}
+.card p{
+    color: white;
+    font-size: 0.8rem;
+    text-align: center;
+    }
+.iconn{
+    color: white;
+    font-size: 2rem;
+    padding-left: 2px;
+}
+
+}
+
+/* Default layout */
+.navigation {
+    width: 250px;
+    transition: width 0.5s;
+}
+
+/* Hidden state for navigation */
+.navigation.hidden {
+    width: 0;
+    overflow: hidden;
+}
+
+/* Main content adjustments */
+body.collapsed .main {
+    margin-left: 0;
+}
+
+.main {
+    transition: margin-left 0.5s;
+    
+}
+
+/* Shifting other elements when collapsed */
+body.collapsed .search,
+body.collapsed .contain,
+body.collapsed .details,
+body.collapsed .Products,
+body.collapsed .card,
+
+body.collapsed .recentcustomers {
+    margin-left: 0;
+    transition: margin-left 0.5s;
+}
+
+
+body.collapsed .usersss
+{
+    margin-left: 132px;
+    transition: margin-left 0.5s;
+}
+/* Default margin for elements when navigation is visible */
+.search,
+ .details,
+.usersss,
+.Products,
+.cardK,
+.card,
+.recentcustomers {
+    transition: margin-left 0.5s;
+   
+}
+
+
+.cardK{
+    display: contents;
+
+    
+}
+
+
+/**************shadyyyyyyy*******************/
