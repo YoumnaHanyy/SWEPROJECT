@@ -808,7 +808,7 @@ input:checked + .slider:before {
 /* Task Display Container Styling */
 .main-content1 h2{
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-margin-left: 40vh;
+margin-left: 39vh;
 }
 .task-display {
     padding: 1rem;
@@ -884,7 +884,64 @@ margin-left: 40vh;
     display: block; /* Show details when the task is active */
 }
 .main-content1 h4{
-    margin-left: 41vh;
+    margin-left: 39vh;
 }
 
+/* Style for the horizontal tabs */
+.task-tabs {
+    display: flex;
+    border-bottom: 1px solid #444;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    margin-left: 39vh;
+}
 
+.tab {
+    margin-right: 20px;
+    padding: 10px;
+    cursor: pointer;
+    color: #fff;
+    border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+    border-bottom: 2px solid #fff; /* Active tab underline */
+}
+
+.tab:hover {
+    color: #888;
+}
+
+/* Task table header styling */
+.task-table-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+    margin-bottom: 10px;
+    margin-left: 39vh;
+}
+
+.column-header {
+    color: #fff;
+    font-weight: bold;
+    flex-basis: 25%; /* Distribute equally across the container */
+    text-align: left;
+}
+
+/* Task display area */
+.task-display {
+    padding: 10px;
+    background-color: #1a1a1a;
+    border: 1px solid #444;
+    border-radius: 5px;
+}
+
+/* Tasks container inside the task display area */
+.task-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    color: white;
+}
