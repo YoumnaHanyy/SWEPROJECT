@@ -214,10 +214,10 @@
     <h2>Your Tasks </h2>
     <h4><span id="taskCount">0</span> tasks</h4>
     <div class="task-tabs">
-        <span class="tab active">My tasks</span>
-        <span class="tab">Notebooks</span>
-        <span class="tab">Notes</span>
-        <span class="tab">Today</span>
+        <span class="tab active">All tasks</span>
+        <span class="tab">School</span>
+        <span class="tab">Work</span>
+        <span class="tab">Personal</span>
         <span class="tab">Assigned</span>
     </div>
 
