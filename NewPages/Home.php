@@ -168,5 +168,21 @@
 </footer>
     </main>
 </div>
+
+
+<script>
+    const header = document.querySelector('.header');
+
+// Add an event listener to the window for the scroll event
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 0) {
+        // If the user has scrolled down, add the 'header-blur' class
+        header.classList.add('header-blur');
+    } else {
+        // If the user scrolls back to the top, remove the 'header-blur' class
+        header.classList.remove('header-blur');
+    }
+});
+</script>
 </body>
 </html>

@@ -21,14 +21,23 @@ body {
 
 .header {
     display: flex;
+    margin-top: -3vh;
     justify-content: space-between; /* Ensures logo + links stay on the left and buttons go to the right */
     align-items: center;
     padding: 20px;
+    width: 100%;
+    z-index: 9999999;
+    position: fixed;
     background-color: #f9f6f2;
     border-bottom: 1px solid #000000;
     font-family: "'Playfair Display', 'Times New Roman', serif";
     font-size:xx-large;
    
+}
+.header-blur {
+    backdrop-filter: blur(10px);
+    background-color: rgba(249, 246, 242, 0.8); /* Transparent background with slight color */
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
 }
 
 .header .logo {
@@ -90,7 +99,7 @@ body {
 }
 
 .main-content {
-    margin-top: 50px;
+    margin-top: 200px;
     font-size:x-large;
     font-family: "'Playfair Display', 'Times New Roman', serif";
 

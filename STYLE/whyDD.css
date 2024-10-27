@@ -18,7 +18,7 @@ body {
     width: 100%;
     text-align: center;
     padding-top: 70px;
-    margin-top: 100px;
+   
     
     
 }
@@ -30,19 +30,25 @@ body {
 
 .header {
     display: flex;
+    margin-top: -14vh;
     justify-content: space-between; /* Ensures logo + links stay on the left and buttons go to the right */
     align-items: center;
     padding: 20px;
-    background-color:#f9f6f2;
+    width: 100%;
+    z-index: 9999999;
+    position: fixed;
+    background-color: #f9f6f2;
     border-bottom: 1px solid #000000;
     font-family: "'Playfair Display', 'Times New Roman', serif";
     font-size:xx-large;
-    width: 100%;
-    z-index: 1000; 
-    margin-top: -170px;
-    position: fixed;
    
 }
+.header-blur {
+    backdrop-filter: blur(10px);
+    background-color: rgba(249, 246, 242, 0.8); /* Transparent background with slight color */
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
+}
+
 
 .header .logo {
     display: flex;
