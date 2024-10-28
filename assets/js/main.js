@@ -59,7 +59,6 @@ document.getElementById("username").addEventListener("input", function () {
             }
         });
 
-
         document.getElementById('user-form').addEventListener('submit', function(event) {
             event.preventDefault();
 
