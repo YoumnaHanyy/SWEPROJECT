@@ -548,7 +548,6 @@ body.collapsed .usersss
 .status-pending { background-color: #dc3545; }
 
 
- /* Popup Modal */
  .modal {
     display: none;
     position: fixed;

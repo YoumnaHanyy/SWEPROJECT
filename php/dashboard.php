@@ -1,5 +1,4 @@
 <?php
-
 // Database connection parameters
 $servername = "localhost";
 $username = "root";
@@ -27,7 +26,68 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="..//assets/css/dashboard.css">
     <link rel="stylesheet" href="/project/SWEPROJECT/assets/css/edit-product.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <style>
+li a {
+    display: flex;
+    align-items: center;
+    padding: 0px 16px;
+    color: #fff; /* Initial text color */
+    text-decoration: none;
+    transition: all 0.3s ease; /* Smooth transition */
+    border-radius: 8px;
+}
+
+li a:hover {
+    background-color: #ffd700; /* Gold background for luxury feel */
+    color: #000; /* Darker text for contrast */
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.7); /* Gold shadow */
+    transform: scale(1.05); /* Slight scaling effect */
+}
+
+li a .icon i {
+    font-size: 0.8rem;
+    margin-right: 8px;
+    transition: transform 0.3s ease; /* Smooth icon transformation */
+}
+
+li a:hover .icon i {
+    transform: rotate(20deg); /* Adds a subtle rotation for flair */
+}
+#sh,#aa,#ash {
+    display: none; /* Hidden by default */
+    
+}
+#generateReportBtn {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #ebb24c, #ffd700);
+    color: #1e1e1e;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: background 0.4s ease, transform 0.3s ease;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effect for button */
+#generateReportBtn:hover {
+    background: linear-gradient(135deg, #ffd700, #ebb24c);
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Active state for button */
+#generateReportBtn:active {
+    transform: scale(0.98);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
       .confirmation-modal {
     display: none; /* Hidden by default */
     position: fixed; 
@@ -93,6 +153,7 @@ $result = $conn->query($sql);
     background-color: #0056b3;
 }
 
+
     </style>
 </head>
 <body>
@@ -106,26 +167,31 @@ $result = $conn->query($sql);
                     </a>
                 </li>
 
-                <li>
-                    <a href="#">
-                        <span class="icon"><i class="fa-solid fa-house"></i></span>
-                        <span class="title"> DashBoard</span>
-                    </a>
-                </li>
+            <li>
+                <a href="javascript:void(0)" onclick="toggleUsersSection2()">
+                <span class="icon"><i class="fa-solid fa-house"></i></span>
+                <span class="title">DashBoard</span>
+                 </a>
+            </li>
 
-                <li>
-                    <a href="#">
-                        <span class="icon"> <i class="fa-solid fa-users"></i></span>
-                        <span class="title"> Customers</span>
-                    </a>
-                </li>
+           
 
+                
+            <li>
+    <a href="javascript:void(0)" onclick="toggleUsersSection3()">
+        <span class="icon"><i class='bx bxs-report'></i></span>
+        <span class="title">reporting</span>
+    </a>
+</li>
+               
+                
                 <li>
-                    <a href="#">
-                        <span class="icon"><i class="fa-solid fa-message"></i> </span>
-                        <span class="title">orders</span>
-                    </a>
-                </li>
+    <a href="javascript:void(0)" onclick="toggleUsersSection()">
+        <span class="icon"><i class="fa-solid fa-users"></i></span>
+        <span class="title">Users</span>
+    </a>
+</li>
+               
 
                 <li>
                     <a href="#">
@@ -176,7 +242,7 @@ $result = $conn->query($sql);
                         <div class="iconn" class="icon"><i class="fa-solid fa-comment"></i> </div> 
                         <div id="info">
                             <h4>15240</h4>
-                            <p>Comments</p>
+                            <p>reviews</p>
                         </div>
                         </div>
                 
@@ -194,16 +260,16 @@ $result = $conn->query($sql);
                             <div class="iconn" class="icon1"><i class="fa-regular fa-eye"></i></div> 
                             <div id="info">
                             <h4>18241</h4>
-                            <p>customers</p>
+                            <p>users</p>
                             </div>
                         </div>
                 
                 
                         <div class="card">
-                            <div class="iconn" class="icon1"><i class="fa-solid fa-cart-shopping"></i></div>
+                            <div class="iconn" class="icon1"> <i class="fa-solid fa-list"></i> </div>
                             <div id="info">
-                            <h4>1900$</h4>
-                            <p>Sales</p>
+                            <h4>19000</h4>
+                            <p>plans</p>
                             </div>
                         </div>
                     </div>
@@ -213,7 +279,7 @@ $result = $conn->query($sql);
             </div>
 <div>
     
-    <div class="usersss">
+    <div class="usersss"   id="sh">
         <div class="recent">
             <div class="title">
                 <h2> Users</h2>
@@ -294,7 +360,7 @@ $result = $conn->query($sql);
         </div>
     </div>
 
-    <div class="usersss">
+    <div class="usersss" id="aa">
         <div class="recent">
      <div class="title">
          <a id="generateReportBtn">Generate Report</a>
@@ -369,7 +435,7 @@ $result = $conn->query($sql);
 </div>
 </div>
 
-    <div class="dashboard-card">
+    <div class="dashboard-card" id="ash">
         <div class="card-headery">
             <h4>Admin Dashboard - Active Users</h4>
             <a href="#" class="view-more">View All Users</a>
@@ -420,8 +486,14 @@ $result = $conn->query($sql);
             <small class="task-time">Due: 10:49AM</small>
         </div>
     </div>
+
+
+
+
 </body>
 <script src="..//assets/js/dash.js">
- 
+
+
+
   </script>
 </html>
