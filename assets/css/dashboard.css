@@ -847,4 +847,130 @@ border-radius: 5px;
 }
 
 
+li a {
+    display: flex;
+    align-items: center;
+    padding: 0px 16px;
+    color: #fff; /* Initial text color */
+    text-decoration: none;
+    transition: all 0.3s ease; /* Smooth transition */
+    border-radius: 8px;
+}
+
+li a:hover {
+    background-color: #ffd700; /* Gold background for luxury feel */
+    color: #000; /* Darker text for contrast */
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.7); /* Gold shadow */
+    transform: scale(1.05); /* Slight scaling effect */
+}
+
+li a .icon i {
+    font-size: 0.8rem;
+    margin-right: 8px;
+    transition: transform 0.3s ease; /* Smooth icon transformation */
+}
+
+li a:hover .icon i {
+    transform: rotate(20deg); /* Adds a subtle rotation for flair */
+}
+#sh,#aa,#ash {
+    display: none; /* Hidden by default */
+    
+}
+#generateReportBtn {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #ebb24c, #ffd700);
+    color: #1e1e1e;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: background 0.4s ease, transform 0.3s ease;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effect for button */
+#generateReportBtn:hover {
+    background: linear-gradient(135deg, #ffd700, #ebb24c);
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Active state for button */
+#generateReportBtn:active {
+    transform: scale(0.98);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+      .confirmation-modal {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 1000; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.89); /* Black with opacity */
+    justify-content: center; 
+    align-items: center;
+}
+
+.confirmation-content {
+    background-color: #e2ab49;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+}
+
+.confirmation-content h4 {
+    margin-bottom: 15px;
+}
+
+.confirmation-content p {
+    margin-bottom: 20px;
+}
+
+.confirmation-content input {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 90%;
+    border: 1px solid #000000;
+    border-radius: 4px;
+}
+
+.btn-confirm, .btn-cancel {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.btn-confirm {
+    background-color: #ff4444; /* Red */
+    color: white;
+}
+
+.btn-cancel {
+    background-color: #007bff; /* Blue */
+    color: white;
+}
+
+.btn-confirm:hover {
+    background-color: #ff3333;
+}
+
+.btn-cancel:hover {
+    background-color: #0056b3;
+}
+
+
+
 
